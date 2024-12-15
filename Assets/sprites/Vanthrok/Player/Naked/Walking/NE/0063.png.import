@@ -1,0 +1,20 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture2D"
+uid="uid://traso38iwthb"
+path="res://.godot/imported/0063.png-380b2195bbef3e005ea39b66545b3356.res"
+group_file="res://Assets/sprites/Atlases/Characters/Player/Player NE3.png"
+valid=true
+[deps]
+
+
+source_file="res://Assets/sprites/Vanthrok/Player/Naked/Walking/NE/0063.png"
+dest_files=["res://.godot/imported/0063.png-380b2195bbef3e005ea39b66545b3356.res"]
+
+[params]
+
+atlas_file="res://Assets/sprites/Atlases/Characters/Player/Player NE3.png"
+import_mode=0
+crop_to_region=true
+trim_alpha_border_from_region=false
