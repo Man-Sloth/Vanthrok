@@ -1,2 +1,2 @@
 # Vanthrok
- Godot project for the game Vanthrok
+ Godot project for the Vantrok video game
