@@ -1,0 +1,632 @@
+[gd_scene load_steps=18 format=3 uid="uid://dv7vk3ew136ws"]
+
+[ext_resource type="Script" path="res://Scripts/character_window.gd" id="1_nm0ds"]
+[ext_resource type="Texture2D" uid="uid://dc0110ia4vdec" path="res://Assets/sprites/UI/Character3Window.png" id="2_pn2cv"]
+[ext_resource type="Texture2D" uid="uid://c5ptgkq2hlvla" path="res://Assets/sprites/UI/Bag Background.png" id="3_jdwje"]
+[ext_resource type="Texture2D" uid="uid://cpfqsu114bbul" path="res://Assets/sprites/UI/XButton.png" id="5_qbidb"]
+[ext_resource type="Texture2D" uid="uid://b0ua4bnd2wibm" path="res://Assets/sprites/UI/Resize_Button.png" id="6_3c4dr"]
+[ext_resource type="Texture2D" uid="uid://cbbhqyk42xrmb" path="res://Assets/sprites/UI/platedark.png" id="7_5vw0h"]
+[ext_resource type="Theme" uid="uid://c58omhf8eve5i" path="res://UI_Theme.tres" id="8_5qh2x"]
+[ext_resource type="Material" uid="uid://delm7ytskxl55" path="res://Assets/shaders/Pink_to_transparent.tres" id="9_c3cet"]
+[ext_resource type="Script" path="res://Scripts/armor_slot.gd" id="9_dlavu"]
+[ext_resource type="Texture2D" uid="uid://dprqf1l8psiuh" path="res://Assets/sprites/Atlases/Characters/HumanNew/HumanSouth.tres" id="9_xe1u2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8v2wp"]
+texture = ExtResource("2_pn2cv")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok5o0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_disle"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48q03"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2ri7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2klv4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yfb0b"]
+
+[node name="CharacterWindow" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1152.0
+offset_top = -648.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.715, 0.715)
+script = ExtResource("1_nm0ds")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -552.0
+offset_top = -674.0
+offset_right = 3078.0
+offset_bottom = 2906.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.188)
+pivot_offset = Vector2(7.5, 0)
+theme_override_styles/panel = SubResource("StyleBoxTexture_8v2wp")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 475
+theme_override_constants/margin_top = 625
+theme_override_constants/margin_right = 475
+theme_override_constants/margin_bottom = 275
+
+[node name="Exit Window" type="Button" parent="."]
+layout_mode = 2
+offset_left = -44.0
+offset_top = -672.0
+offset_right = 12.0
+offset_bottom = -616.0
+scale = Vector2(0.72, 0.72)
+mouse_filter = 1
+theme_override_colors/icon_pressed_color = Color(0.881937, 0.881937, 0.881937, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ok5o0")
+icon = ExtResource("5_qbidb")
+flat = true
+icon_alignment = 2
+vertical_icon_alignment = 0
+
+[node name="Resize Window" type="Button" parent="."]
+layout_mode = 2
+offset_left = -544.0
+offset_top = -672.0
+offset_right = -488.0
+offset_bottom = -616.0
+scale = Vector2(0.72, 0.72)
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_disle")
+action_mode = 0
+icon = ExtResource("6_3c4dr")
+flat = true
+icon_alignment = 2
+vertical_icon_alignment = 0
+
+[node name="Title Plate" type="Button" parent="."]
+layout_mode = 0
+offset_left = -404.0
+offset_top = -708.0
+offset_right = -140.0
+offset_bottom = -636.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_48q03")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d2ri7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2klv4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yfb0b")
+icon = ExtResource("7_5vw0h")
+
+[node name="Title Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = -381.0
+offset_top = -689.0
+offset_right = -170.0
+offset_bottom = -655.0
+theme = ExtResource("8_5qh2x")
+text = "Character"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.344673, 0.335517, 0.321534, 1)
+layout_mode = 2
+offset_left = -336.0
+offset_top = -525.0
+offset_right = 1649.0
+offset_bottom = 3251.0
+scale = Vector2(0.067, 0.067)
+mouse_filter = 2
+texture = ExtResource("3_jdwje")
+
+[node name="PlayerDummy" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = -325.0
+offset_top = -517.0
+offset_right = 3305.0
+offset_bottom = 3063.0
+scale = Vector2(0.029, 0.067)
+mouse_filter = 2
+texture = ExtResource("9_xe1u2")
+expand_mode = 1
+
+[node name="Chest" type="TextureRect" parent="."]
+material = ExtResource("9_c3cet")
+layout_mode = 2
+offset_left = -325.0
+offset_top = -517.0
+offset_right = 3305.0
+offset_bottom = 3063.0
+scale = Vector2(0.029, 0.067)
+mouse_filter = 2
+expand_mode = 1
+
+[node name="Head" type="TextureRect" parent="."]
+material = ExtResource("9_c3cet")
+layout_mode = 2
+offset_left = -325.0
+offset_top = -517.0
+offset_right = 3305.0
+offset_bottom = 3063.0
+scale = Vector2(0.029, 0.067)
+mouse_filter = 2
+expand_mode = 1
+
+[node name="Legs" type="TextureRect" parent="."]
+material = ExtResource("9_c3cet")
+layout_mode = 2
+offset_left = -325.0
+offset_top = -517.0
+offset_right = 3305.0
+offset_bottom = 3063.0
+scale = Vector2(0.029, 0.067)
+mouse_filter = 2
+expand_mode = 1
+
+[node name="ArmorSlots" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Helmet" type="TextureRect" parent="ArmorSlots"]
+layout_mode = 2
+offset_left = -309.0
+offset_top = -610.0
+offset_right = 3321.0
+offset_bottom = 2970.0
+scale = Vector2(0.02, 0.02)
+mouse_filter = 0
+texture = ExtResource("3_jdwje")
+stretch_mode = 4
+script = ExtResource("9_dlavu")
+
+[node name="item_sprite" type="TextureRect" parent="ArmorSlots/Helmet"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -773.776
+offset_top = 500.0
+offset_right = -4147.78
+offset_bottom = -2952.0
+scale = Vector2(20, 20)
+
+[node name="Chest" type="TextureRect" parent="ArmorSlots"]
+layout_mode = 2
+offset_left = -434.0
+offset_top = -492.0
+offset_right = 3196.0
+offset_bottom = 3088.0
+scale = Vector2(0.02, 0.02)
+mouse_filter = 0
+texture = ExtResource("3_jdwje")
+stretch_mode = 4
+script = ExtResource("9_dlavu")
+Item_Type = 1
+
+[node name="item_sprite" type="TextureRect" parent="ArmorSlots/Chest"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.988
+anchor_bottom = 0.974
+offset_left = -747.553
+offset_top = 474.126
+offset_right = -4077.99
+offset_bottom = -2884.79
+scale = Vector2(20, 20)
+
+[node name="Arms" type="TextureRect" parent="ArmorSlots"]
+layout_mode = 2
+offset_left = -178.0
+offset_top = -492.0
+offset_right = 3452.0
+offset_bottom = 3088.0
+scale = Vector2(0.02, 0.02)
+mouse_filter = 0
+texture = ExtResource("3_jdwje")
+stretch_mode = 4
+script = ExtResource("9_dlavu")
+Item_Type = 3
+
+[node name="item_sprite" type="TextureRect" parent="ArmorSlots/Arms"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.988
+anchor_bottom = 1.0
+offset_left = -750.35
+offset_top = 544.056
+offset_right = -4080.79
+offset_bottom = -2907.94
+scale = Vector2(20, 20)
+
+[node name="Shield" type="TextureRect" parent="ArmorSlots"]
+layout_mode = 2
+offset_left = -178.0
+offset_top = -371.0
+offset_right = 3452.0
+offset_bottom = 3209.0
+scale = Vector2(0.02, 0.02)
+mouse_filter = 0
+texture = ExtResource("3_jdwje")
+stretch_mode = 4
+script = ExtResource("9_dlavu")
+Item_Type = 5
+
+[node name="item_sprite" type="TextureRect" parent="ArmorSlots/Shield"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.988
+anchor_bottom = 0.974
+offset_left = -750.349
+offset_top = 508.041
+offset_right = -4080.79
+offset_bottom = -2850.88
+scale = Vector2(20, 20)
+
+[node name="Weapon" type="TextureRect" parent="ArmorSlots"]
+layout_mode = 2
+offset_left = -434.0
+offset_top = -371.0
+offset_right = 3196.0
+offset_bottom = 3209.0
+scale = Vector2(0.02, 0.02)
+mouse_filter = 0
+texture = ExtResource("3_jdwje")
+stretch_mode = 4
+script = ExtResource("9_dlavu")
+Item_Type = 4
+
+[node name="item_sprite" type="TextureRect" parent="ArmorSlots/Weapon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -747.552
+offset_top = 508.041
+offset_right = -4121.55
+offset_bottom = -2943.96
+scale = Vector2(20, 20)
+
+[node name="Legs" type="TextureRect" parent="ArmorSlots"]
+layout_mode = 2
+offset_left = -309.0
+offset_top = -238.0
+offset_right = 3321.0
+offset_bottom = 3342.0
+scale = Vector2(0.02, 0.02)
+mouse_filter = 0
+texture = ExtResource("3_jdwje")
+stretch_mode = 4
+script = ExtResource("9_dlavu")
+Item_Type = 2
+
+[node name="item_sprite" type="TextureRect" parent="ArmorSlots/Legs"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.988
+anchor_bottom = 1.0
+offset_left = -773.776
+offset_top = 571.329
+offset_right = -4104.22
+offset_bottom = -2880.67
+scale = Vector2(20, 20)
+
+[node name="Helm Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = -297.0
+offset_top = -634.0
+offset_right = -253.0
+offset_bottom = -606.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Head"
+
+[node name="Chest Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = -422.0
+offset_top = -519.0
+offset_right = -376.0
+offset_bottom = -491.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Chest
+"
+
+[node name="Arms Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = -166.0
+offset_top = -519.0
+offset_right = -119.0
+offset_bottom = -491.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Arms"
+
+[node name="Weapon text" type="Label" parent="."]
+layout_mode = 0
+offset_left = -433.0
+offset_top = -400.0
+offset_right = -364.0
+offset_bottom = -372.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Weapon
+"
+
+[node name="Shield Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = -170.0
+offset_top = -400.0
+offset_right = -116.0
+offset_bottom = -372.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Shield
+"
+
+[node name="Legs Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = -297.0
+offset_top = -268.0
+offset_right = -253.0
+offset_bottom = -240.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Legs
+"
+
+[node name="Name Value" type="Label" parent="."]
+self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
+layout_mode = 0
+offset_left = -485.0
+offset_top = -619.0
+offset_right = -394.0
+offset_bottom = -591.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Man Sloth"
+
+[node name="Level Tag" type="Label" parent="."]
+self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
+layout_mode = 0
+offset_left = -140.0
+offset_top = -619.0
+offset_right = -49.0
+offset_bottom = -591.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Level: "
+
+[node name="Level Value" type="Label" parent="."]
+layout_mode = 0
+offset_left = -79.0
+offset_top = -619.0
+offset_right = 12.0
+offset_bottom = -591.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "69
+"
+
+[node name="Exp Tag" type="Label" parent="."]
+self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
+layout_mode = 0
+offset_left = -516.0
+offset_top = -67.0
+offset_right = -425.0
+offset_bottom = -39.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Exp:"
+horizontal_alignment = 2
+
+[node name="Exp Value" type="Label" parent="."]
+layout_mode = 0
+offset_left = -404.0
+offset_top = -67.0
+offset_right = -313.0
+offset_bottom = -8.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "9564 / 10000"
+
+[node name="Health Tag" type="Label" parent="."]
+self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
+layout_mode = 0
+offset_left = -516.0
+offset_top = -193.0
+offset_right = -425.0
+offset_bottom = -165.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Health:"
+horizontal_alignment = 2
+
+[node name="Health Value" type="Label" parent="."]
+layout_mode = 0
+offset_left = -404.0
+offset_top = -193.0
+offset_right = -313.0
+offset_bottom = -134.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "9001"
+
+[node name="Armor Tag" type="Label" parent="."]
+self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
+layout_mode = 0
+offset_left = -516.0
+offset_top = -151.0
+offset_right = -425.0
+offset_bottom = -123.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Armor:
+"
+horizontal_alignment = 2
+
+[node name="Armor Value" type="Label" parent="."]
+layout_mode = 0
+offset_left = -404.0
+offset_top = -151.0
+offset_right = -313.0
+offset_bottom = -92.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "420
+"
+
+[node name="Weight Tag" type="Label" parent="."]
+self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
+layout_mode = 0
+offset_left = -516.0
+offset_top = -109.0
+offset_right = -425.0
+offset_bottom = -81.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Weight:
+"
+horizontal_alignment = 2
+
+[node name="Weight Value" type="Label" parent="."]
+layout_mode = 0
+offset_left = -404.0
+offset_top = -109.0
+offset_right = -313.0
+offset_bottom = -50.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "185
+"
+
+[node name="Strength Tag" type="Label" parent="."]
+self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
+layout_mode = 0
+offset_left = -178.0
+offset_top = -193.0
+offset_right = -87.0
+offset_bottom = -165.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Strength:
+"
+horizontal_alignment = 2
+
+[node name="Strength Value" type="Label" parent="."]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -193.0
+offset_right = 18.0
+offset_bottom = -134.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "42"
+
+[node name="Dexterity Tag" type="Label" parent="."]
+self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
+layout_mode = 0
+offset_left = -178.0
+offset_top = -150.0
+offset_right = -87.0
+offset_bottom = -122.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Dexterity:
+"
+horizontal_alignment = 2
+
+[node name="Dexterity Value" type="Label" parent="."]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -151.0
+offset_right = 18.0
+offset_bottom = -92.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "666"
+
+[node name="Inteligence Tag" type="Label" parent="."]
+self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
+layout_mode = 0
+offset_left = -178.0
+offset_top = -109.0
+offset_right = -81.0
+offset_bottom = -81.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Inteligence: "
+horizontal_alignment = 2
+
+[node name="Inteligence Value" type="Label" parent="."]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -109.0
+offset_right = 18.0
+offset_bottom = -50.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "276
+"
+
+[node name="Constitution Tag" type="Label" parent="."]
+self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
+layout_mode = 0
+offset_left = -190.0
+offset_top = -66.0
+offset_right = -86.0
+offset_bottom = -38.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "Constitution:"
+horizontal_alignment = 2
+
+[node name="Constitution Value" type="Label" parent="."]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -66.0
+offset_right = 18.0
+offset_bottom = -7.0
+scale = Vector2(1.02439, 0.707317)
+theme = ExtResource("8_5qh2x")
+text = "101"
+
+[connection signal="mouse_entered" from="PanelContainer" to="." method="_on_panel_container_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer" to="." method="_on_panel_container_mouse_exited"]
+[connection signal="mouse_entered" from="Exit Window" to="." method="_on_exit_window_mouse_entered"]
+[connection signal="mouse_exited" from="Exit Window" to="." method="_on_exit_window_mouse_exited"]
+[connection signal="pressed" from="Exit Window" to="." method="_on_exit_window_pressed"]
+[connection signal="button_down" from="Resize Window" to="." method="_on_resize_window_button_down"]
+[connection signal="button_up" from="Resize Window" to="." method="_on_resize_window_button_up"]
+[connection signal="mouse_entered" from="Resize Window" to="." method="_on_resize_window_mouse_entered"]
+[connection signal="mouse_exited" from="Resize Window" to="." method="_on_resize_window_mouse_exited"]
+[connection signal="pressed" from="Resize Window" to="." method="_on_resize_bag_pressed"]
+[connection signal="button_down" from="Title Plate" to="." method="_on_top_plate_button_button_down"]
+[connection signal="button_down" from="Title Plate" to="." method="_on_title_plate_button_down"]
+[connection signal="button_up" from="Title Plate" to="." method="_on_title_plate_button_up"]
+[connection signal="mouse_entered" from="Title Plate" to="." method="_on_title_plate_mouse_entered"]
+[connection signal="mouse_exited" from="Title Plate" to="." method="_on_title_plate_mouse_exited"]
+[connection signal="mouse_entered" from="ArmorSlots/Helmet" to="ArmorSlots/Helmet" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ArmorSlots/Helmet" to="ArmorSlots/Helmet" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="ArmorSlots/Chest" to="ArmorSlots/Chest" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ArmorSlots/Chest" to="ArmorSlots/Chest" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="ArmorSlots/Arms" to="ArmorSlots/Arms" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ArmorSlots/Arms" to="ArmorSlots/Arms" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="ArmorSlots/Shield" to="ArmorSlots/Shield" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ArmorSlots/Shield" to="ArmorSlots/Shield" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="ArmorSlots/Weapon" to="ArmorSlots/Weapon" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ArmorSlots/Weapon" to="ArmorSlots/Weapon" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="ArmorSlots/Legs" to="ArmorSlots/Legs" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ArmorSlots/Legs" to="ArmorSlots/Legs" method="_on_mouse_exited"]

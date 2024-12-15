@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4ish13sf6118"]
+
+[ext_resource type="SpriteFrames" uid="uid://dk50k7pp118yg" path="res://Scenes/rpg_player.tres" id="1_f8bs5"]
+[ext_resource type="Material" uid="uid://delm7ytskxl55" path="res://Assets/shaders/Pink_to_transparent.tres" id="9_o7181"]
+[ext_resource type="SpriteFrames" uid="uid://c3cgab784dlky" path="res://Assets/sprites/SpriteFrames/Human_Helmet.tres" id="10_wv6rj"]
+[ext_resource type="SpriteFrames" uid="uid://crp0dbh8k2xrr" path="res://Assets/sprites/SpriteFrames/Human_Pants.tres" id="11_r5o0d"]
+[ext_resource type="SpriteFrames" uid="uid://xulu5wu7npsu" path="res://Assets/sprites/SpriteFrames/Human_Shirt.tres" id="12_qft0m"]
+[ext_resource type="SpriteFrames" uid="uid://djfljpb75bdar" path="res://Assets/sprites/SpriteFrames/Human_Gloves.tres" id="13_du6q8"]
+[ext_resource type="SpriteFrames" uid="uid://cm0pegxy4xghn" path="res://Assets/sprites/SpriteFrames/Human_Sword.tres" id="14_tyal6"]
+[ext_resource type="SpriteFrames" uid="uid://cmeumao1jpdl6" path="res://Assets/sprites/SpriteFrames/Human_Shield.tres" id="15_stmq5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7nf7q"]
+radius = 48.0104
+
+[node name="RPG_Player" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 2
+
+[node name="Body Sprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = ExtResource("1_f8bs5")
+animation = &"idle_down"
+offset = Vector2(0.145, -75.78)
+
+[node name="Hat" type="Node2D" parent="."]
+
+[node name="Cloth Helmet Sprite" type="AnimatedSprite2D" parent="Hat"]
+visible = false
+material = ExtResource("9_o7181")
+sprite_frames = ExtResource("10_wv6rj")
+animation = &"idle_south"
+offset = Vector2(0.145, -75.78)
+
+[node name="Shirt" type="Node2D" parent="."]
+
+[node name="Cloth Shirt Sprite" type="AnimatedSprite2D" parent="Shirt"]
+visible = false
+material = ExtResource("9_o7181")
+sprite_frames = ExtResource("12_qft0m")
+animation = &"idle_south"
+offset = Vector2(0.145, -75.78)
+
+[node name="Pants" type="Node2D" parent="."]
+
+[node name="Cloth Pants Sprite" type="AnimatedSprite2D" parent="Pants"]
+visible = false
+material = ExtResource("9_o7181")
+sprite_frames = ExtResource("11_r5o0d")
+animation = &"walk_west"
+offset = Vector2(0.145, -75.78)
+
+[node name="Glove Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
+material = ExtResource("9_o7181")
+sprite_frames = ExtResource("13_du6q8")
+animation = &"walk_SE"
+offset = Vector2(-9.11, 3.865)
+
+[node name="Weapon Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
+material = ExtResource("9_o7181")
+sprite_frames = ExtResource("14_tyal6")
+animation = &"walk_SE"
+offset = Vector2(-9.11, 3.865)
+
+[node name="Shield Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
+material = ExtResource("9_o7181")
+sprite_frames = ExtResource("15_stmq5")
+animation = &"walk_west"
+offset = Vector2(-9.11, 3.865)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_7nf7q")
