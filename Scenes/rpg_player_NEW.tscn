@@ -50,12 +50,14 @@ sprite_frames = ExtResource("11_r5o0d")
 animation = &"walk_west"
 offset = Vector2(0.145, -75.78)
 
-[node name="Glove Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Gloves" type="Node2D" parent="."]
+
+[node name="Cloth Gloves Sprite" type="AnimatedSprite2D" parent="Gloves"]
 visible = false
 material = ExtResource("9_o7181")
 sprite_frames = ExtResource("13_du6q8")
-animation = &"walk_SE"
-offset = Vector2(-9.11, 3.865)
+animation = &"walk_west"
+offset = Vector2(0.145, -75.78)
 
 [node name="Weapon Sprite" type="AnimatedSprite2D" parent="."]
 visible = false

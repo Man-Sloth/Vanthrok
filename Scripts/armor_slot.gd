@@ -5,10 +5,12 @@ extends TextureRect
 @onready var cloth_shirt_sprite = $"../../../../RPG_Player/Shirt/Cloth Shirt Sprite"
 @onready var cloth_helmet_sprite = $"../../../../RPG_Player/Hat/Cloth Helmet Sprite"
 @onready var cloth_pants_sprite = $"../../../../RPG_Player/Pants/Cloth Pants Sprite"
+@onready var cloth_gloves_sprite = $"../../../../RPG_Player/Gloves/Cloth Gloves Sprite"
 
 @onready var chest = $"../../Chest"
 @onready var head = $"../../Head"
 @onready var legs = $"../../Legs"
+@onready var arms = $"../../Arms"
 
 @export_group("Item Properties")
 enum ITEM_TYPE {Helm, Chest, Legs, Arms, Weapon, Shield, Stackable, Non_Stackable = -1}
@@ -17,6 +19,8 @@ const OBJECTSCENE = preload("res://Scenes/coin.tscn")
 const DUMMY_CLOTH_SHIRT = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Chest_South.tres")
 const DUMMY_CLOTH_HAT = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Head_South.tres")
 const DUMMY_CLOTH_LEGGINGS = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Legs_South.tres")
+const DUMMY_CLOTH_GLOVES = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Arms_South.tres")
+
 
 var holdOffset = Vector2(115,170)
 
@@ -49,18 +53,22 @@ func _input(event):
 				slot_object.get_node("AnimatedSprite2D").set_sprite_frames(object.get_node("AnimatedSprite2D").get_sprite_frames())
 				
 				if armor_type == 0: #cloth
-						if item_type == 1: #chest
-							chest.texture = DUMMY_CLOTH_SHIRT
-							chest.visible = true
-							cloth_shirt_sprite.visible = true
-						elif item_type == 0: #head
-							head.texture = DUMMY_CLOTH_HAT
-							head.visible = true
-							cloth_helmet_sprite.visible = true
-						elif item_type == 2: #leggings
-							legs.texture = DUMMY_CLOTH_LEGGINGS
-							legs.visible = true
-							cloth_pants_sprite.visible = true	
+					if item_type == 1: #chest
+						chest.texture = DUMMY_CLOTH_SHIRT
+						chest.visible = true
+						cloth_shirt_sprite.visible = true
+					elif item_type == 0: #head
+						head.texture = DUMMY_CLOTH_HAT
+						head.visible = true
+						cloth_helmet_sprite.visible = true
+					elif item_type == 2: #leggings
+						legs.texture = DUMMY_CLOTH_LEGGINGS
+						legs.visible = true
+						cloth_pants_sprite.visible = true	
+					elif item_type == 3: #gloves
+						arms.texture = DUMMY_CLOTH_GLOVES
+						arms.visible = true
+						cloth_gloves_sprite.visible = true	
 						
 				object.delete()
 				game_manager.set_texture(null)
@@ -83,18 +91,22 @@ func _input(event):
 					slot.get_slot_object().get_node("AnimatedSprite2D").set_sprite_frames(object.get_node("AnimatedSprite2D").get_sprite_frames())
 					
 					if armor_type == 0: #cloth
-							if item_type == 1: #chest
-								chest.texture = DUMMY_CLOTH_SHIRT
-								chest.visible = true
-								cloth_shirt_sprite.visible = true
-							elif item_type == 0: #Helm
-								head.texture = DUMMY_CLOTH_HAT
-								head.visible = true
-								cloth_helmet_sprite.visible = true
-							elif item_type == 2: #leggings
-								legs.texture = DUMMY_CLOTH_LEGGINGS
-								legs.visible = true
-								cloth_pants_sprite.visible = true	
+						if item_type == 1: #chest
+							chest.texture = DUMMY_CLOTH_SHIRT
+							chest.visible = true
+							cloth_shirt_sprite.visible = true
+						elif item_type == 0: #Helm
+							head.texture = DUMMY_CLOTH_HAT
+							head.visible = true
+							cloth_helmet_sprite.visible = true
+						elif item_type == 2: #leggings
+							legs.texture = DUMMY_CLOTH_LEGGINGS
+							legs.visible = true
+							cloth_pants_sprite.visible = true	
+						elif item_type == 3: #gloves
+							arms.texture = DUMMY_CLOTH_GLOVES
+							arms.visible = true
+							cloth_gloves_sprite.visible = true	
 								
 					object.delete()
 					game_manager.set_texture(null)
@@ -144,6 +156,10 @@ func _input(event):
 						legs.texture = null
 						legs.visible = false
 						cloth_pants_sprite.visible = false
+				elif item_type == 3: #gloves
+						arms.texture = null
+						arms.visible = false
+						cloth_gloves_sprite.visible = false
 			
 func animate():
 	if slot_object != null:

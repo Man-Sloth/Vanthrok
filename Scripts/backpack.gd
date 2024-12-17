@@ -80,18 +80,6 @@ func _input(event):
 							game_manager.set_held_object(null)
 							game_manager.set_pulled_location(null)
 							game_manager.set_holding(false)
-					#else:
-						#var object = game_manager.get_held_object()
-						#slot.set_slot_object(OBJECTSCENE.instantiate())
-						#slot.get_slot_object().visible = false
-						#slot.set_item_type(object.get_item_type())
-						#add_child(slot.get_slot_object())
-						#slot.get_slot_object().get_node("AnimatedSprite2D").set_sprite_frames(object.get_node("AnimatedSprite2D").get_sprite_frames())
-						#object.delete()
-						#game_manager.set_texture(null)
-						#game_manager.set_held_object(null)
-						#game_manager.set_holding(false)
-						#game_manager.set_pulled_location(null)
 		
 func toggle_menu():
 	if self.visible:

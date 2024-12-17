@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b0ua4bnd2wibm" path="res://Assets/sprites/UI/Resize_Button.png" id="6_3c4dr"]
 [ext_resource type="Texture2D" uid="uid://cbbhqyk42xrmb" path="res://Assets/sprites/UI/platedark.png" id="7_5vw0h"]
 [ext_resource type="Theme" uid="uid://c58omhf8eve5i" path="res://UI_Theme.tres" id="8_5qh2x"]
+[ext_resource type="Texture2D" uid="uid://dprqf1l8psiuh" path="res://Assets/sprites/Atlases/Characters/Player/PlayerSouth.tres" id="8_vxotp"]
 [ext_resource type="Material" uid="uid://delm7ytskxl55" path="res://Assets/shaders/Pink_to_transparent.tres" id="9_c3cet"]
 [ext_resource type="Script" path="res://Scripts/armor_slot.gd" id="9_dlavu"]
-[ext_resource type="Texture2D" uid="uid://dprqf1l8psiuh" path="res://Assets/sprites/Atlases/Characters/HumanNew/HumanSouth.tres" id="9_xe1u2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8v2wp"]
 texture = ExtResource("2_pn2cv")
@@ -138,7 +138,7 @@ offset_right = 3305.0
 offset_bottom = 3063.0
 scale = Vector2(0.029, 0.067)
 mouse_filter = 2
-texture = ExtResource("9_xe1u2")
+texture = ExtResource("8_vxotp")
 expand_mode = 1
 
 [node name="Chest" type="TextureRect" parent="."]
@@ -164,6 +164,17 @@ mouse_filter = 2
 expand_mode = 1
 
 [node name="Legs" type="TextureRect" parent="."]
+material = ExtResource("9_c3cet")
+layout_mode = 2
+offset_left = -325.0
+offset_top = -517.0
+offset_right = 3305.0
+offset_bottom = 3063.0
+scale = Vector2(0.029, 0.067)
+mouse_filter = 2
+expand_mode = 1
+
+[node name="Arms" type="TextureRect" parent="."]
 material = ExtResource("9_c3cet")
 layout_mode = 2
 offset_left = -325.0
@@ -613,8 +624,8 @@ text = "101"
 [connection signal="mouse_entered" from="Resize Window" to="." method="_on_resize_window_mouse_entered"]
 [connection signal="mouse_exited" from="Resize Window" to="." method="_on_resize_window_mouse_exited"]
 [connection signal="pressed" from="Resize Window" to="." method="_on_resize_bag_pressed"]
-[connection signal="button_down" from="Title Plate" to="." method="_on_top_plate_button_button_down"]
 [connection signal="button_down" from="Title Plate" to="." method="_on_title_plate_button_down"]
+[connection signal="button_down" from="Title Plate" to="." method="_on_top_plate_button_button_down"]
 [connection signal="button_up" from="Title Plate" to="." method="_on_title_plate_button_up"]
 [connection signal="mouse_entered" from="Title Plate" to="." method="_on_title_plate_mouse_entered"]
 [connection signal="mouse_exited" from="Title Plate" to="." method="_on_title_plate_mouse_exited"]

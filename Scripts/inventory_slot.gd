@@ -2,7 +2,7 @@ extends TextureRect
 
 @onready var game_manager = $"../../../../../../GameManager"
 @onready var item_sprite = $item_sprite
-@onready var player = $"../../../../../../RPG_Player_New"
+@onready var player = $"../../../../../../RPG_Player"
 
 @export_group("Item Properties")
 enum ITEM_TYPE {Helm, Chest, Legs, Arms, Weapon, Shield, Stackable, Non_Stackable, Empty = -1}

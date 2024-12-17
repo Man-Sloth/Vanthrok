@@ -15,6 +15,9 @@ extends Panel
 @onready var cloth_helmet_sprite = $"../../RPG_Player/Hat/Cloth Helmet Sprite"
 @onready var legs = $Legs
 @onready var cloth_pants_sprite = $"../../RPG_Player/Pants/Cloth Pants Sprite"
+@onready var arms = $Arms
+@onready var cloth_gloves_sprite = $"../../RPG_Player/Arms/Cloth Gloves Sprite"
+
 
 
 var resizing = false
@@ -27,6 +30,7 @@ const OBJECTSCENE = preload("res://Scenes/coin.tscn")
 const DUMMY_CLOTH_SHIRT = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Chest_South.tres")
 const DUMMY_CLOTH_HELMET = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Head_South.tres")
 const DUMMY_CLOTH_LEGGINGS = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Legs_South.tres")
+const DUMMY_CLOTH_ARMS = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Arms_South.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -67,6 +71,11 @@ func _input(event):
 						legs.texture = DUMMY_CLOTH_LEGGINGS
 						legs.visible = true
 						cloth_pants_sprite.visible = true
+					elif item_type == 3: #Arms
+						arms.texture = DUMMY_CLOTH_ARMS
+						arms.visible = true
+						cloth_gloves_sprite.visible = true
+						
 				object.delete()
 				game_manager.set_texture(null)
 				game_manager.set_held_object(null)
@@ -107,18 +116,6 @@ func _input(event):
 						game_manager.set_pulled_location(null)
 						game_manager.set_pulled_char_location(null)
 						game_manager.set_holding(false)
-					#else:
-						#var object = game_manager.get_held_object()
-						#slot.set_slot_object(OBJECTSCENE.instantiate())
-						#slot.get_slot_object().visible = false
-						#slot.set_item_type(object.get_item_type())
-						#add_child(slot.get_slot_object())
-						#slot.get_slot_object().get_node("AnimatedSprite2D").set_sprite_frames(object.get_node("AnimatedSprite2D").get_sprite_frames())
-						#object.delete()
-						#game_manager.set_texture(null)
-						#game_manager.set_held_object(null)
-						#game_manager.set_pulled_char_location(slot)
-						#game_manager.set_holding(false)
 		
 func toggle_menu():
 	if self.visible:
