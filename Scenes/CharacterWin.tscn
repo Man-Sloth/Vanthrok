@@ -196,6 +196,17 @@ scale = Vector2(0.029, 0.067)
 mouse_filter = 2
 expand_mode = 1
 
+[node name="Shield" type="TextureRect" parent="."]
+material = ExtResource("9_c3cet")
+layout_mode = 2
+offset_left = -319.73
+offset_top = -517.0
+offset_right = 3310.27
+offset_bottom = 3063.0
+scale = Vector2(0.029, 0.067)
+mouse_filter = 2
+expand_mode = 1
+
 [node name="ArmorSlots" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
