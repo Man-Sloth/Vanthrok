@@ -1,7 +1,7 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://d2534ijinj32o"]
 
-[ext_resource type="Texture2D" uid="uid://cfb3fsn5d558r" path="res://Assets/sprites/Atlases/Characters/Cloth/Shield_Human_S.png" id="1_kvweh"]
+[ext_resource type="Texture2D" uid="uid://dwdjw1u7kp1g5" path="res://Assets/sprites/Atlases/Characters/Cloth/Shield_Human_SW.png" id="1_m0slp"]
 
 [resource]
-atlas = ExtResource("1_kvweh")
+atlas = ExtResource("1_m0slp")
 region = Rect2(4727.68, 3382.57, 137, 316)
