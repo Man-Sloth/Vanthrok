@@ -188,13 +188,11 @@ expand_mode = 1
 [node name="Weapon" type="TextureRect" parent="."]
 material = ExtResource("9_c3cet")
 layout_mode = 2
-offset_left = -319.73
-offset_top = -517.0
-offset_right = 3310.27
-offset_bottom = 3063.0
-scale = Vector2(0.029, 0.067)
+offset_left = -353.846
+offset_top = -451.748
+offset_right = -219.846
+offset_bottom = -316.748
 mouse_filter = 2
-expand_mode = 1
 
 [node name="Shield" type="TextureRect" parent="."]
 material = ExtResource("9_c3cet")
