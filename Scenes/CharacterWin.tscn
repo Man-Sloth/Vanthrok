@@ -362,7 +362,7 @@ offset_right = -253.0
 offset_bottom = -606.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
-text = "Head"
+text = "Helm"
 
 [node name="Chest Text" type="Label" parent="."]
 layout_mode = 0
@@ -377,13 +377,13 @@ text = "Chest
 
 [node name="Arms Text" type="Label" parent="."]
 layout_mode = 0
-offset_left = -166.0
-offset_top = -519.0
-offset_right = -119.0
-offset_bottom = -491.0
+offset_left = -183.217
+offset_top = -520.28
+offset_right = -102.217
+offset_bottom = -492.28
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
-text = "Arms"
+text = "Gauntlets"
 
 [node name="Weapon text" type="Label" parent="."]
 layout_mode = 0

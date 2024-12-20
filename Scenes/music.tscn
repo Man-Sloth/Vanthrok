@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://owv4xlny4ank"]
 
-[ext_resource type="AudioStream" uid="uid://bmguog23p4hlx" path="res://Assets/music/time_for_adventure.mp3" id="1_dtd23"]
+[ext_resource type="AudioStream" uid="uid://di6w658hr0qio" path="res://Assets/music/Wilderness.mp3" id="1_kdg5s"]
 
 [node name="Music" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_dtd23")
+stream = ExtResource("1_kdg5s")
 autoplay = true
+max_distance = 5000.0
 bus = &"Music"
