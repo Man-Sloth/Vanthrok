@@ -18,8 +18,9 @@ extends Panel
 @onready var arms = $Arms
 @onready var cloth_gloves_sprite = $"../../RPG_Player/Arms/Cloth Gloves Sprite"
 @onready var weapon = $Weapon
-@onready var level1_sword_sprite = $"../../RPG_Player/Weapon/Level1 Weapon Sprite"
-
+@onready var level1_weapon_sprite = $"../../RPG_Player/Weapon/Level1 Weapon Sprite"
+@onready var shield = $Shield
+@onready var level1_shield_sprite = $"../../RPG_Player/Shield/Level1 Shield Sprite"
 
 var resizing = false
 var moving = false
@@ -33,6 +34,8 @@ const DUMMY_CLOTH_HELMET = preload("res://Assets/sprites/Atlases/Characters/Clot
 const DUMMY_CLOTH_LEGGINGS = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Legs_South.tres")
 const DUMMY_CLOTH_ARMS = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Arms_South.tres")
 const DUMMY_LEVEL1_SWORD = preload("res://Assets/sprites/Atlases/Characters/Cloth/Level1_Weapon_South.tres")
+const DUMMY_LEVEL1_SHIELD = preload("res://Assets/sprites/Atlases/Characters/Cloth/Level1_Shield_South.tres")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -81,6 +84,10 @@ func _input(event):
 						weapon.texture = DUMMY_LEVEL1_SWORD
 						weapon.visible = true
 						cloth_gloves_sprite.visible = true	
+					elif item_type == 5: #Shield
+						shield.texture = DUMMY_LEVEL1_SHIELD
+						shield.visible = true
+						level1_shield_sprite.visible = true	
 				object.delete()
 				game_manager.set_texture(null)
 				game_manager.set_held_object(null)

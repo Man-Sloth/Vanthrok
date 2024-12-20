@@ -20,7 +20,9 @@ collision_layer = 2
 [node name="Body Sprite" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 sprite_frames = ExtResource("1_f8bs5")
-animation = &"idle_down"
+animation = &"walk_SE"
+autoplay = "walk_SE"
+frame_progress = 0.593286
 offset = Vector2(0.145, -75.78)
 
 [node name="Hat" type="Node2D" parent="."]
@@ -38,7 +40,7 @@ offset = Vector2(0.145, -75.78)
 visible = false
 material = ExtResource("9_o7181")
 sprite_frames = ExtResource("12_qft0m")
-animation = &"idle_south"
+animation = &"walk_SE"
 offset = Vector2(0.145, -75.78)
 
 [node name="Pants" type="Node2D" parent="."]
@@ -62,17 +64,21 @@ offset = Vector2(0.145, -75.78)
 [node name="Weapon" type="Node2D" parent="."]
 
 [node name="Level1 Weapon Sprite" type="AnimatedSprite2D" parent="Weapon"]
+visible = false
 material = ExtResource("9_o7181")
 sprite_frames = ExtResource("14_tyal6")
-animation = &"idle_west"
+animation = &"walk_SE"
 offset = Vector2(0.145, -75.78)
 
-[node name="Shield Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Shield" type="Node2D" parent="."]
+
+[node name="Level1 Shield Sprite" type="AnimatedSprite2D" parent="Shield"]
 visible = false
 material = ExtResource("9_o7181")
 sprite_frames = ExtResource("15_stmq5")
-animation = &"walk_west"
-offset = Vector2(-9.11, 3.865)
+animation = &"walk_SE"
+frame_progress = 0.279484
+offset = Vector2(0.145, -75.78)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1

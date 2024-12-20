@@ -7,12 +7,14 @@ extends TextureRect
 @onready var cloth_pants_sprite = $"../../../../RPG_Player/Pants/Cloth Pants Sprite"
 @onready var cloth_gloves_sprite = $"../../../../RPG_Player/Gloves/Cloth Gloves Sprite"
 @onready var level1_weapon_sprite = $"../../../../RPG_Player/Weapon/Level1 Weapon Sprite"
+@onready var level1_shield_sprite = $"../../../../RPG_Player/Shield/Level1 Shield Sprite"
 
 @onready var chest = $"../../Chest"
 @onready var head = $"../../Head"
 @onready var legs = $"../../Legs"
 @onready var arms = $"../../Arms"
 @onready var weapon = $"../../Weapon"
+@onready var shield = $"../../Shield"
 
 @export_group("Item Properties")
 enum ITEM_TYPE {Helm, Chest, Legs, Arms, Weapon, Shield, Stackable, Non_Stackable = -1}
@@ -23,7 +25,7 @@ const DUMMY_CLOTH_HAT = preload("res://Assets/sprites/Atlases/Characters/Cloth/C
 const DUMMY_CLOTH_LEGGINGS = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Legs_South.tres")
 const DUMMY_CLOTH_GLOVES = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Arms_South.tres")
 const DUMMY_LEVEL1_WEAPON = preload("res://Assets/sprites/Atlases/Characters/Cloth/Level1_Weapon_South.tres")
-
+const DUMMY_LEVEL1_SHIELD = preload("res://Assets/sprites/Atlases/Characters/Cloth/Level1_Shield_South.tres")
 
 var holdOffset = Vector2(115,170)
 
@@ -76,6 +78,10 @@ func _input(event):
 						weapon.texture = DUMMY_LEVEL1_WEAPON
 						weapon.visible = true
 						level1_weapon_sprite.visible = true	
+					elif item_type == 5: #Shield
+						shield.texture = DUMMY_LEVEL1_SHIELD
+						shield.visible = true
+						level1_shield_sprite.visible = true	
 						
 				object.delete()
 				game_manager.set_texture(null)
@@ -118,6 +124,10 @@ func _input(event):
 							weapon.texture = DUMMY_LEVEL1_WEAPON
 							weapon.visible = true
 							level1_weapon_sprite.visible = true		
+						elif item_type == 5: #Shield
+							shield.texture = DUMMY_LEVEL1_SHIELD
+							shield.visible = true
+							level1_shield_sprite.visible = true	
 								
 					object.delete()
 					game_manager.set_texture(null)
@@ -164,17 +174,21 @@ func _input(event):
 					head.visible = false
 					cloth_helmet_sprite.visible = false
 				elif item_type == 2: #leggings
-						legs.texture = null
-						legs.visible = false
-						cloth_pants_sprite.visible = false
+					legs.texture = null
+					legs.visible = false
+					cloth_pants_sprite.visible = false
 				elif item_type == 3: #gloves
-						arms.texture = null
-						arms.visible = false
-						cloth_gloves_sprite.visible = false
+					arms.texture = null
+					arms.visible = false
+					cloth_gloves_sprite.visible = false
 				elif item_type == 4: #weapon
-						weapon.texture = null
-						weapon.visible = false
-						level1_weapon_sprite.visible = false
+					weapon.texture = null
+					weapon.visible = false
+					level1_weapon_sprite.visible = false
+				elif item_type == 5: #Shield
+					shield.texture = null
+					shield.visible = false
+					level1_shield_sprite.visible = false
 			
 func animate():
 	if slot_object != null:

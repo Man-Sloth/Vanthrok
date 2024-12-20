@@ -6,8 +6,7 @@ extends CharacterBody2D
 @onready var cloth_helmet_sprite = $"Hat/Cloth Helmet Sprite"
 @onready var cloth_gloves_sprite = $"Gloves/Cloth Gloves Sprite"
 @onready var level1_weapon_sprite = $"Weapon/Level1 Weapon Sprite"
-
-@onready var shield_sprite = $"Shield Sprite"
+@onready var level1_shield_sprite = $"Shield/Level1 Shield Sprite"
 
 
 const SPEED = 70000.0
@@ -23,6 +22,7 @@ var helmet_type = armor_mat.CLOTH
 var pants_type = armor_mat.CLOTH
 var gloves_type = armor_mat.CLOTH
 var weapon_type = armor_mat.CLOTH
+var shield_type = armor_mat.CLOTH
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -81,9 +81,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("idle_south")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("idle_south")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("idle_south")	
 			animated_sprite.play("idle_down")
 			
-			shield_sprite.play("idle_south")
 		elif facing == dir.N:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("idle_north")
@@ -95,9 +96,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("idle_north")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("idle_north")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("idle_north")	
 			animated_sprite.play("idle_up")
 			
-			shield_sprite.play("idle_north")
 		elif facing == dir.W:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("idle_west")
@@ -109,9 +111,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("idle_west")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("idle_west")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("idle_west")	
 			animated_sprite.play("idle_left")
 			
-			shield_sprite.play("idle_west")
 		elif facing == dir.E:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("idle_east")
@@ -123,9 +126,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("idle_east")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("idle_east")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("idle_east")	
 			animated_sprite.play("idle_right")
 			
-			shield_sprite.play("idle_east")
 		elif facing == dir.NE:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("idle_NE")
@@ -137,9 +141,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("idle_NE")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("idle_NE")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("idle_NE")	
 			animated_sprite.play("idle_NE")
 			
-			shield_sprite.play("idle_NE")
 		elif facing == dir.SE:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("idle_SE")
@@ -151,9 +156,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("idle_SE")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("idle_SE")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("idle_SE")	
 			animated_sprite.play("idle_SE")
 			
-			shield_sprite.play("idle_SE")
 		elif facing == dir.SW:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("idle_SW")
@@ -165,9 +171,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("idle_SW")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("idle_SW")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("idle_SW")	
 			animated_sprite.play("idle_SW")
 			
-			shield_sprite.play("idle_SW")
 		elif facing == dir.NW:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("idle_NW")
@@ -179,10 +186,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("idle_NW")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("idle_NW")	
-				
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("idle_NW")	
 			animated_sprite.play("idle_NW")
 			
-			shield_sprite.play("idle_NW")
 		currentFrame = 0
 	else:
 		currentFrame = animated_sprite.get_frame()
@@ -198,9 +205,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("walk_south")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("walk_south")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("walk_south")		
 			animated_sprite.play("walk_down")
 			
-			shield_sprite.play("walk_south")
 		elif facing == dir.N:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("walk_north")
@@ -212,9 +220,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("walk_north")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("walk_north")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("walk_north")	
 			animated_sprite.play("walk_up")
 			
-			shield_sprite.play("walk_north")
 		elif facing == dir.W:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("walk_west")
@@ -226,9 +235,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("walk_west")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("walk_west")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("walk_west")	
 			animated_sprite.play("walk_left")
 			
-			shield_sprite.play("walk_west")
 		elif facing == dir.E:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("walk_east")
@@ -240,9 +250,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("walk_east")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("walk_east")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("walk_east")	
 			animated_sprite.play("walk_right")
 			
-			shield_sprite.play("walk_east")
 		elif facing == dir.NE:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("walk_NE")
@@ -254,9 +265,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("walk_NE")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("walk_NE")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("walk_NE")	
 			animated_sprite.play("walk_NE")
 			
-			shield_sprite.play("walk_NE")
 		elif facing == dir.SE:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("walk_SE")
@@ -268,9 +280,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("walk_SE")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("walk_SE")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("walk_SE")	
 			animated_sprite.play("walk_SE")
 			
-			shield_sprite.play("walk_SE")
 		elif facing == dir.SW:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("walk_SW")
@@ -282,9 +295,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("walk_SW")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("walk_SW")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("walk_SW")	
 			animated_sprite.play("walk_SW")
 			
-			shield_sprite.play("walk_SW")
 		elif facing == dir.NW:
 			if(shirt_type == armor_mat.CLOTH):
 				cloth_shirt_sprite.play("walk_NW")
@@ -296,9 +310,10 @@ func _physics_process(delta):
 				cloth_gloves_sprite.play("walk_NW")
 			if weapon_type == armor_mat.CLOTH:
 				level1_weapon_sprite.play("walk_NW")	
+			if shield_type == armor_mat.CLOTH:
+				level1_shield_sprite.play("walk_NW")	
 			animated_sprite.play("walk_NW")
 			
-			shield_sprite.play("walk_NW")
 		if currentAnimation != animated_sprite.get_animation():
 			animated_sprite.set_frame_and_progress(currentFrame, 0.0)
 			cloth_shirt_sprite.set_frame_and_progress(currentFrame, 0.0)
@@ -306,7 +321,7 @@ func _physics_process(delta):
 			cloth_helmet_sprite.set_frame_and_progress(currentFrame, 0.0)
 			cloth_gloves_sprite.set_frame_and_progress(currentFrame, 0.0)
 			level1_weapon_sprite.set_frame_and_progress(currentFrame, 0.0)
-			shield_sprite.set_frame_and_progress(currentFrame, 0.0)
+			level1_shield_sprite.set_frame_and_progress(currentFrame, 0.0)
 		
 	# Apply movement
 	if directionX:
