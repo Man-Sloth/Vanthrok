@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h6rekv2g8sb"
-path="res://.godot/imported/Player NW.png-a2c3c26b2faa3c8f67fb675a645710ad.ctex"
+uid="uid://c80wuq6vcsg22"
+path="res://.godot/imported/Player N.png-29c2968f1bff61425448965f4e070c8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/Atlases/Characters/Player/Player NW.png"
-dest_files=["res://.godot/imported/Player NW.png-a2c3c26b2faa3c8f67fb675a645710ad.ctex"]
+source_file="res://Assets/sprites/Atlases/Characters/Player/Attack Walk/Player N.png"
+dest_files=["res://.godot/imported/Player N.png-29c2968f1bff61425448965f4e070c8e.ctex"]
 
 [params]
 

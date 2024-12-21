@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b4ish13sf6118"]
 
-[ext_resource type="SpriteFrames" uid="uid://dk50k7pp118yg" path="res://Scenes/rpg_player.tres" id="1_f8bs5"]
+[ext_resource type="SpriteFrames" uid="uid://dk50k7pp118yg" path="res://Assets/sprites/SpriteFrames/Male_Normal_Mode.tres" id="1_fn43a"]
 [ext_resource type="Material" uid="uid://delm7ytskxl55" path="res://Assets/shaders/Pink_to_transparent.tres" id="9_o7181"]
 [ext_resource type="SpriteFrames" uid="uid://c3cgab784dlky" path="res://Assets/sprites/SpriteFrames/Human_Helmet.tres" id="10_wv6rj"]
 [ext_resource type="SpriteFrames" uid="uid://crp0dbh8k2xrr" path="res://Assets/sprites/SpriteFrames/Human_Pants.tres" id="11_r5o0d"]
@@ -19,7 +19,7 @@ collision_layer = 2
 
 [node name="Body Sprite" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-sprite_frames = ExtResource("1_f8bs5")
+sprite_frames = ExtResource("1_fn43a")
 animation = &"walk_SE"
 autoplay = "walk_SE"
 frame_progress = 0.593286
