@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://du141in4867y4"]
+[gd_scene load_steps=10 format=3 uid="uid://du141in4867y4"]
 
 [ext_resource type="TileSet" uid="uid://cayafb86sxmm7" path="res://Assets/sprites/Vanthrok/_TileSets/Tile Sets.tres" id="1_nyllr"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uvyqx"]
 [ext_resource type="Script" path="res://Scripts/rpg_player.gd" id="2_pij8f"]
 [ext_resource type="PackedScene" uid="uid://b4ish13sf6118" path="res://Scenes/rpg_player_NEW.tscn" id="5_ca2bj"]
 [ext_resource type="PackedScene" uid="uid://ba7trey8luw8y" path="res://Scenes/backpack.tscn" id="5_f7xvq"]
+[ext_resource type="PackedScene" uid="uid://d0qcnn1ns267x" path="res://Scenes/Controls.tscn" id="7_i8ybn"]
 [ext_resource type="PackedScene" uid="uid://7w1ur7aqqvti" path="res://Scenes/coin.tscn" id="7_vy5p8"]
 [ext_resource type="PackedScene" uid="uid://dv7vk3ew136ws" path="res://Scenes/CharacterWin.tscn" id="8_2ciys"]
 
@@ -54,10 +55,19 @@ offset_bottom = -158.675
 
 [node name="CharacterWindow" parent="CanvasLayer" instance=ExtResource("8_2ciys")]
 unique_name_in_owner = true
-offset_left = -114.21
-offset_top = -163.675
-offset_right = -114.21
-offset_bottom = -163.675
+visible = false
+offset_left = -107.21
+offset_top = -289.675
+offset_right = -107.21
+offset_bottom = -289.675
+
+[node name="Controls" parent="CanvasLayer" instance=ExtResource("7_i8ybn")]
+unique_name_in_owner = true
+visible = false
+offset_left = -91.21
+offset_top = -264.675
+offset_right = -91.21
+offset_bottom = -264.675
 
 [node name="Mouse_Held_Item" type="Panel" parent="CanvasLayer"]
 self_modulate = Color(1, 1, 1, 0)
@@ -71,6 +81,22 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.25, 0.25)
 mouse_filter = 2
+
+[node name="Controls Text" type="Label" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -443.21
+offset_top = -281.675
+offset_right = -90.21
+offset_bottom = -147.675
+grow_horizontal = 0
+grow_vertical = 0
+text = "Controls - F1"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Coin" parent="." instance=ExtResource("7_vy5p8")]
 z_index = 1

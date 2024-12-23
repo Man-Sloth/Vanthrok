@@ -1,0 +1,163 @@
+[gd_scene load_steps=14 format=3 uid="uid://d0qcnn1ns267x"]
+
+[ext_resource type="Script" path="res://Scenes/Controls.gd" id="1_1lyrw"]
+[ext_resource type="Texture2D" uid="uid://ud3svasexgj7" path="res://Assets/sprites/UI/bagdark.png" id="2_17hqt"]
+[ext_resource type="Texture2D" uid="uid://cpfqsu114bbul" path="res://Assets/sprites/UI/XButton.png" id="5_11d2p"]
+[ext_resource type="Texture2D" uid="uid://b0ua4bnd2wibm" path="res://Assets/sprites/UI/Resize_Button.png" id="6_bbaed"]
+[ext_resource type="Texture2D" uid="uid://cbbhqyk42xrmb" path="res://Assets/sprites/UI/platedark.png" id="7_uld0x"]
+[ext_resource type="Theme" uid="uid://c58omhf8eve5i" path="res://UI_Theme.tres" id="8_itydr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8v2wp"]
+texture = ExtResource("2_17hqt")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok5o0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_disle"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48q03"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2ri7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2klv4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yfb0b"]
+
+[node name="Controls" type="Panel"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1152.0
+offset_top = -648.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_1lyrw")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.0
+offset_top = -417.0
+offset_right = 3222.0
+offset_bottom = 3163.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.11, 0.117)
+pivot_offset = Vector2(7.5, 0)
+theme_override_styles/panel = SubResource("StyleBoxTexture_8v2wp")
+
+[node name="Exit Bag" type="Button" parent="."]
+layout_mode = 2
+offset_left = -50.0
+offset_top = -408.0
+offset_right = 6.00003
+offset_bottom = -352.0
+scale = Vector2(0.72, 0.72)
+mouse_filter = 1
+theme_override_colors/icon_pressed_color = Color(0.881937, 0.881937, 0.881937, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ok5o0")
+icon = ExtResource("5_11d2p")
+flat = true
+icon_alignment = 2
+vertical_icon_alignment = 0
+
+[node name="Resize Bag" type="Button" parent="."]
+layout_mode = 2
+offset_left = -393.0
+offset_top = -408.0
+offset_right = -337.0
+offset_bottom = -352.0
+scale = Vector2(0.72, 0.72)
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_disle")
+action_mode = 0
+icon = ExtResource("6_bbaed")
+flat = true
+icon_alignment = 2
+vertical_icon_alignment = 0
+
+[node name="Title Plate" type="Button" parent="."]
+layout_mode = 0
+offset_left = -333.0
+offset_top = -446.0
+offset_right = -69.0
+offset_bottom = -374.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_48q03")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d2ri7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2klv4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yfb0b")
+icon = ExtResource("7_uld0x")
+
+[node name="Title Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = -306.0
+offset_top = -430.0
+offset_right = -95.0
+offset_bottom = -396.0
+theme = ExtResource("8_itydr")
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control title" type="Label" parent="."]
+layout_mode = 2
+offset_left = -396.0
+offset_top = -360.0
+offset_right = -237.0
+offset_bottom = -142.0
+theme = ExtResource("8_itydr")
+text = "Inventory/Bag:
+Character Sheet:
+Move:
+ 
+ 
+Pick up/Equip:
+ 
+ 
+ 
+ 
+Attack Mode:"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Control value" type="Label" parent="."]
+layout_mode = 2
+offset_left = -228.0
+offset_top = -357.0
+offset_right = -25.0
+offset_bottom = -19.0
+theme = ExtResource("8_itydr")
+text = "I, B
+C
+W,A,S,D or 
+Right Mouse(Hold)
+ 
+Move close and left clickor drag to inventory or character sheet slots
+ 
+Q"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="mouse_entered" from="PanelContainer" to="." method="_on_panel_container_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer" to="." method="_on_panel_container_mouse_exited"]
+[connection signal="mouse_entered" from="Exit Bag" to="." method="_on_exit_bag_mouse_entered"]
+[connection signal="mouse_exited" from="Exit Bag" to="." method="_on_exit_bag_mouse_exited"]
+[connection signal="pressed" from="Exit Bag" to="." method="_on_exit_bag_pressed"]
+[connection signal="button_down" from="Resize Bag" to="." method="_on_resize_bag_button_down"]
+[connection signal="button_up" from="Resize Bag" to="." method="_on_resize_bag_button_up"]
+[connection signal="mouse_entered" from="Resize Bag" to="." method="_on_resize_bag_mouse_entered"]
+[connection signal="mouse_exited" from="Resize Bag" to="." method="_on_resize_bag_mouse_exited"]
+[connection signal="pressed" from="Resize Bag" to="." method="_on_resize_bag_pressed"]
+[connection signal="button_down" from="Title Plate" to="." method="_on_title_plate_button_down"]
+[connection signal="button_down" from="Title Plate" to="." method="_on_top_plate_button_button_down"]
+[connection signal="button_up" from="Title Plate" to="." method="_on_title_plate_button_up"]
+[connection signal="mouse_entered" from="Title Plate" to="." method="_on_title_plate_mouse_entered"]
+[connection signal="mouse_exited" from="Title Plate" to="." method="_on_title_plate_mouse_exited"]
