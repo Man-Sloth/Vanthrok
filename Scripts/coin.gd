@@ -25,7 +25,7 @@ var inventory_slot = -1
 func _ready():
 	update_stats()
 
-func _process(delta):
+func _process(_delta):
 	pass
 	
 func _input(event):
@@ -56,10 +56,10 @@ func get_inventory_slot():
 func set_inventory_slot(slot_number):
 	inventory_slot = slot_number
 	
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	close_to_player = true
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	close_to_player = false
 	
 func _on_mouse_entered():

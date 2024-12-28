@@ -2,12 +2,13 @@ extends TextureRect
 
 @onready var game_manager = $"../../../../GameManager"
 @onready var item_sprite = $item_sprite
-@onready var cloth_shirt_sprite = $"../../../../RPG_Player/Shirt/Cloth Shirt Sprite"
-@onready var cloth_helmet_sprite = $"../../../../RPG_Player/Hat/Cloth Helmet Sprite"
-@onready var cloth_pants_sprite = $"../../../../RPG_Player/Pants/Cloth Pants Sprite"
-@onready var cloth_gloves_sprite = $"../../../../RPG_Player/Gloves/Cloth Gloves Sprite"
-@onready var level1_weapon_sprite = $"../../../../RPG_Player/Weapon/Level1 Weapon Sprite"
-@onready var level1_shield_sprite = $"../../../../RPG_Player/Shield/Level1 Shield Sprite"
+@onready var player = $"../../../../RPG_Player"
+@onready var chest_sprite = $"../../../../RPG_Player/Chest Sprite"
+@onready var helmet_sprite = $"../../../../RPG_Player/Helm Sprite"
+@onready var leggings_sprite = $"../../../../RPG_Player/Leggings Sprite"
+@onready var gauntlets_sprite = $"../../../../RPG_Player/Gauntlet Sprite"
+@onready var weapon_sprite = $"../../../../RPG_Player/Weapon Sprite"
+@onready var shield_sprite = $"../../../../RPG_Player/Shield Sprite"
 
 @onready var chest = $"../../Chest"
 @onready var head = $"../../Head"
@@ -19,8 +20,11 @@ extends TextureRect
 @export_group("Item Properties")
 enum ITEM_TYPE {Helm, Chest, Legs, Arms, Weapon, Shield, Stackable, Non_Stackable = -1}
 @export var Item_Type: ITEM_TYPE
+var armor_type_last_frame = -1
+
 const OBJECTSCENE = preload("res://Scenes/coin.tscn")
-const DUMMY_CLOTH_SHIRT = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Chest_South.tres")
+var dummy_chest
+#const DUMMY_CLOTH_SHIRT = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Chest_South.tres")
 const DUMMY_CLOTH_HAT = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Head_South.tres")
 const DUMMY_CLOTH_LEGGINGS = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Legs_South.tres")
 const DUMMY_CLOTH_GLOVES = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Arms_South.tres")
@@ -40,16 +44,25 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	animate()
 	
 func _input(event):
-	if hovering && game_manager.get_held_object() != null:
-		if game_manager.get_held_object().get_item_type() == Item_Type:
+	if hovering && game_manager.get_held_object() != null: # mouse is holding an item
+		if game_manager.get_held_object().get_item_type() == Item_Type: # item can be dropped in this location
 			if event.is_action_released("pickup"):
 				object = game_manager.get_held_object()
 				var item_type = object.get_item_type()
 				var armor_type = object.get_armor_type()
+				
+				if armor_type != armor_type_last_frame: # new armor type was placed in location. Need to load new asset
+					if armor_type == 0: #cloth
+						if item_type == 1: #chest
+							chest.texture = load("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Chest_South.tres")
+							chest.visible = true
+							chest_sprite.visible = true
+							player.set_chest_frames()
+						armor_type_last_frame = armor_type
 				
 				slot_object = OBJECTSCENE.instantiate()
 				slot_object.visible = false
@@ -58,43 +71,42 @@ func _input(event):
 				slot_object.get_node("AnimatedSprite2D").set_sprite_frames(object.get_node("AnimatedSprite2D").get_sprite_frames())
 				
 				if armor_type == 0: #cloth
-					if item_type == 1: #chest
-						chest.texture = DUMMY_CLOTH_SHIRT
-						chest.visible = true
-						cloth_shirt_sprite.visible = true
-					elif item_type == 0: #head
+					
+					if item_type == 0: #head
 						head.texture = DUMMY_CLOTH_HAT
 						head.visible = true
-						cloth_helmet_sprite.visible = true
+						helmet_sprite.visible = true
 					elif item_type == 2: #leggings
 						legs.texture = DUMMY_CLOTH_LEGGINGS
 						legs.visible = true
-						cloth_pants_sprite.visible = true	
+						leggings_sprite.visible = true	
 					elif item_type == 3: #gloves
 						arms.texture = DUMMY_CLOTH_GLOVES
 						arms.visible = true
-						cloth_gloves_sprite.visible = true	
+						gauntlets_sprite.visible = true	
 					elif item_type == 4: #weapon
 						weapon.texture = DUMMY_LEVEL1_WEAPON
 						weapon.visible = true
-						level1_weapon_sprite.visible = true	
+						weapon_sprite.visible = true	
 					elif item_type == 5: #Shield
 						shield.texture = DUMMY_LEVEL1_SHIELD
 						shield.visible = true
-						level1_shield_sprite.visible = true	
-						
+						shield_sprite.visible = true	
+				
+				
+					
 				object.delete()
 				game_manager.set_texture(null)
 				game_manager.set_held_object(null)
 				game_manager.set_pulled_location(null)
 				game_manager.set_pulled_char_location(null)
 				
-		else:
+		else: # item CANNOT be dropped at this location
 			var slot = game_manager.get_pulled_char_location()
 			var inv_slot = game_manager.get_pulled_location()
-			if slot != null:
+			if slot != null: #Pulled from another armor slot
 				if event.is_action_released("pickup"):
-					var object = game_manager.get_held_object()
+					object = game_manager.get_held_object()
 					var item_type = object.get_item_type()
 					var armor_type = object.get_armor_type()
 					slot.set_slot_object(OBJECTSCENE.instantiate())
@@ -105,38 +117,38 @@ func _input(event):
 					
 					if armor_type == 0: #cloth
 						if item_type == 1: #chest
-							chest.texture = DUMMY_CLOTH_SHIRT
+							#chest.texture = DUMMY_CLOTH_SHIRT
 							chest.visible = true
-							cloth_shirt_sprite.visible = true
+							chest_sprite.visible = true
 						elif item_type == 0: #Helm
 							head.texture = DUMMY_CLOTH_HAT
 							head.visible = true
-							cloth_helmet_sprite.visible = true
+							helmet_sprite.visible = true
 						elif item_type == 2: #leggings
 							legs.texture = DUMMY_CLOTH_LEGGINGS
 							legs.visible = true
-							cloth_pants_sprite.visible = true	
+							leggings_sprite.visible = true	
 						elif item_type == 3: #gloves
 							arms.texture = DUMMY_CLOTH_GLOVES
 							arms.visible = true
-							cloth_gloves_sprite.visible = true	
+							gauntlets_sprite.visible = true	
 						elif item_type == 4: #weapon
 							weapon.texture = DUMMY_LEVEL1_WEAPON
 							weapon.visible = true
-							level1_weapon_sprite.visible = true		
+							weapon_sprite.visible = true		
 						elif item_type == 5: #Shield
 							shield.texture = DUMMY_LEVEL1_SHIELD
 							shield.visible = true
-							level1_shield_sprite.visible = true	
+							shield_sprite.visible = true	
 								
 					object.delete()
 					game_manager.set_texture(null)
 					game_manager.set_held_object(null)
 					game_manager.set_pulled_char_location(null)
 					game_manager.set_holding(false)
-			elif inv_slot != null:
+			elif inv_slot != null: # pulled from a bag slot
 				if event.is_action_released("pickup"):
-					var object = game_manager.get_held_object()
+					object = game_manager.get_held_object()
 					var item_type = object.get_item_type()
 					
 					inv_slot.set_slot_object(OBJECTSCENE.instantiate())
@@ -151,12 +163,11 @@ func _input(event):
 					game_manager.set_pulled_location(null)
 					game_manager.set_holding(false)
 					
-	elif hovering && game_manager.get_held_object() == null:
-		if event.is_action_pressed("pickup"):
+	elif hovering && game_manager.get_held_object() == null: # Mouse is NOT holding an item
+		if event.is_action_pressed("pickup"): # pick up an item from this armor slot
 			if slot_object != null:
 				var item_type = slot_object.get_item_type()
-				var armor_type = slot_object.get_armor_type()
-				
+				player.clear_spriteframes()
 				game_manager.set_held_object(slot_object)
 				game_manager.set_holding(true)
 				game_manager.set_held_position(event.position - holdOffset)
@@ -168,28 +179,29 @@ func _input(event):
 				if item_type == 1: #chest
 					chest.texture =null
 					chest.visible = false
-					cloth_shirt_sprite.visible = false
+					armor_type_last_frame = -1
+					chest_sprite.visible = false
 				elif item_type == 0: #head
 					head.texture = null
 					head.visible = false
-					cloth_helmet_sprite.visible = false
+					helmet_sprite.visible = false
 				elif item_type == 2: #leggings
 					legs.texture = null
 					legs.visible = false
-					cloth_pants_sprite.visible = false
+					leggings_sprite.visible = false
 				elif item_type == 3: #gloves
 					arms.texture = null
 					arms.visible = false
-					cloth_gloves_sprite.visible = false
+					gauntlets_sprite.visible = false
 				elif item_type == 4: #weapon
 					weapon.texture = null
 					weapon.visible = false
-					level1_weapon_sprite.visible = false
+					weapon_sprite.visible = false
 				elif item_type == 5: #Shield
 					shield.texture = null
 					shield.visible = false
-					level1_shield_sprite.visible = false
-			
+					shield_sprite.visible = false
+	
 func animate():
 	if slot_object != null:
 		var animatedSprite2D = slot_object.get_node("AnimatedSprite2D")

@@ -10,17 +10,17 @@ extends Panel
 @onready var player = $"../../RPG_Player"
 
 @onready var chest = $Chest
-@onready var cloth_shirt_sprite = $"../../RPG_Player/Shirt/Cloth Shirt Sprite"
+@onready var chest_sprite = $"../../RPG_Player/Chest Sprite"
 @onready var head = $Head
-@onready var cloth_helmet_sprite = $"../../RPG_Player/Hat/Cloth Helmet Sprite"
+@onready var helmet_sprite = $"../../RPG_Player/Helm Sprite"
 @onready var legs = $Legs
-@onready var cloth_pants_sprite = $"../../RPG_Player/Pants/Cloth Pants Sprite"
+@onready var leggings_sprite = $"../../RPG_Player/Leggings Sprite"
 @onready var arms = $Arms
-@onready var cloth_gloves_sprite = $"../../RPG_Player/Arms/Cloth Gloves Sprite"
+@onready var gauntlet_sprite = $"../../RPG_Player/Gauntlet Sprite"
 @onready var weapon = $Weapon
-@onready var level1_weapon_sprite = $"../../RPG_Player/Weapon/Level1 Weapon Sprite"
+@onready var weapon_sprite = $"../../RPG_Player/Weapon Sprite"
 @onready var shield = $Shield
-@onready var level1_shield_sprite = $"../../RPG_Player/Shield/Level1 Shield Sprite"
+@onready var shield_sprite = $"../../RPG_Player/Shield Sprite"
 
 var resizing = false
 var moving = false
@@ -41,7 +41,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	window_resize()
 	window_move()
 	
@@ -67,27 +67,27 @@ func _input(event):
 					if item_type == 1: #chest
 						chest.texture = DUMMY_CLOTH_SHIRT
 						chest.visible = true
-						cloth_shirt_sprite.visible = true
+						chest_sprite.visible = true
 					elif item_type == 0: #helmet
 						head.texture = DUMMY_CLOTH_HELMET
 						head.visible = true
-						cloth_helmet_sprite.visible = true
+						helmet_sprite.visible = true
 					elif item_type == 2: #leggings
 						legs.texture = DUMMY_CLOTH_LEGGINGS
 						legs.visible = true
-						cloth_pants_sprite.visible = true
+						leggings_sprite.visible = true
 					elif item_type == 3: #Arms
 						arms.texture = DUMMY_CLOTH_ARMS
 						arms.visible = true
-						cloth_gloves_sprite.visible = true
+						gauntlet_sprite.visible = true
 					elif item_type == 4: #Weapon
 						weapon.texture = DUMMY_LEVEL1_SWORD
 						weapon.visible = true
-						cloth_gloves_sprite.visible = true	
+						weapon_sprite.visible = true	
 					elif item_type == 5: #Shield
 						shield.texture = DUMMY_LEVEL1_SHIELD
 						shield.visible = true
-						level1_shield_sprite.visible = true	
+						shield_sprite.visible = true	
 				object.delete()
 				game_manager.set_texture(null)
 				game_manager.set_held_object(null)

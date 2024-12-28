@@ -14,7 +14,7 @@ var hovering_window = false
 
 #@onready var score_label = %ScoreLabel
 
-func _process(delta):
+func _process(_delta):
 	if holding:
 		var animatedSprite2D = held_object.get_node("AnimatedSprite2D")
 		var frameIndex: int = animatedSprite2D.get_frame()

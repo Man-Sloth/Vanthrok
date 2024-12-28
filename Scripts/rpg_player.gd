@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 @onready var body_sprite = $"Body Sprite"
-@onready var cloth_shirt_sprite = $"Shirt/Cloth Shirt Sprite"
-@onready var cloth_pants_sprite = $"Pants/Cloth Pants Sprite"
-@onready var cloth_helmet_sprite = $"Hat/Cloth Helmet Sprite"
-@onready var cloth_gloves_sprite = $"Gloves/Cloth Gloves Sprite"
-@onready var level1_weapon_sprite = $"Weapon/Level1 Weapon Sprite"
-@onready var level1_shield_sprite = $"Shield/Level1 Shield Sprite"
+@onready var chest_sprite = $"Chest Sprite"
+@onready var leggings_sprite = $"Leggings Sprite"
+@onready var helmet_sprite = $"Helm Sprite"
+@onready var gauntlet_sprite = $"Gauntlet Sprite"
+@onready var weapon_sprite = $"Weapon Sprite"
+@onready var shield_sprite = $"Shield Sprite"
+
+var new_chest_sprite
 
 const MALE_NORMAL_MODE = preload("res://Assets/sprites/SpriteFrames/Male_Normal_Mode.tres")
 const MALE_ATTACK_MODE = preload("res://Assets/sprites/SpriteFrames/Male_Attack_Mode.tres")
@@ -14,20 +16,40 @@ const MALE_ATTACK_MODE = preload("res://Assets/sprites/SpriteFrames/Male_Attack_
 const SPEED = 70000.0
 var idle = false
 var attack_mode = false
+var attack_released = true
 enum dir {N, E, W, S, NE, SE, SW, NW}
 var facing = dir.S
 var currentFrame = 0
 var currentAnimation = "idle_down"
 enum armorslot {HELM, GAUNTLET, SHIELD, LEGGINGS, WEAPON, CHEST}
 enum armor_mat {CLOTH} 
-var shirt_type = armor_mat.CLOTH
+var shirt_type = -1
 var helmet_type = armor_mat.CLOTH
 var pants_type = armor_mat.CLOTH
 var gloves_type = armor_mat.CLOTH
 var weapon_type = armor_mat.CLOTH
 var shield_type = armor_mat.CLOTH
-var attack_released = true
+
+var last_shirt_type = -1
+var last_helmet_type = -1
+var last_pants_type = -1
+var last_gloves_type = -1
+var last_weapon_type = -1
+var last_shield_type = -1
+
+var load_shirt = false
+var load_thread = Thread.new()
+
 var loaded_animations = []
+
+func _process(_delta):
+	if shirt_type != last_shirt_type:
+		if load_shirt == false:
+			load_shirt = true
+			#ResourceLoader.load_threaded_request("res://Assets/sprites/SpriteFrames/Human_Shirt.tres")
+			#load_thread.start(load_resource)
+		
+	
 func _physics_process(delta):
 	
 	if Input.is_action_just_released("attack_mode"):
@@ -40,6 +62,8 @@ func _physics_process(delta):
 				attack_mode = false
 			else:
 				attack_mode = true
+	
+	
 		
 	if attack_mode:
 		body_sprite.sprite_frames = MALE_ATTACK_MODE
@@ -88,260 +112,263 @@ func _physics_process(delta):
 			else:
 				facing = dir.N
 	
-		
+	if shirt_type != -1:
+		if idle:
+			if facing == dir.S:
+				chest_sprite.play("idle_south")
+			elif facing == dir.N:
+				chest_sprite.play("idle_north")
+			elif facing == dir.W:
+				chest_sprite.play("idle_west")
+			elif facing == dir.E:
+				chest_sprite.play("idle_east")
+			elif facing == dir.NE:
+				chest_sprite.play("idle_NE")
+			elif facing == dir.SE:
+				chest_sprite.play("idle_SE")
+			elif facing == dir.SW:
+				chest_sprite.play("idle_SW")
+			elif facing == dir.NW:
+				chest_sprite.play("idle_NW")
+		else:
+			if facing == dir.S:
+				chest_sprite.play("walk_south")
+			elif facing == dir.N:
+				chest_sprite.play("walk_north")
+			elif facing == dir.W:
+				chest_sprite.play("walk_west")
+			elif facing == dir.E:
+				chest_sprite.play("walk_east")
+			elif facing == dir.NE:
+				chest_sprite.play("walk_NE")
+			elif facing == dir.SE:
+				chest_sprite.play("walk_SE")
+			elif facing == dir.SW:
+				chest_sprite.play("walk_SW")
+			elif facing == dir.NW:
+				chest_sprite.play("walk_NW")
+			
 	if idle:
 		if facing == dir.S:
-			if shirt_type == armor_mat.CLOTH:
-				cloth_shirt_sprite.play("idle_south")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("idle_south")
+				helmet_sprite.play("idle_south")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("idle_south")
+				leggings_sprite.play("idle_south")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("idle_south")
+				gauntlet_sprite.play("idle_south")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("idle_south")	
+				weapon_sprite.play("idle_south")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("idle_south")	
+				shield_sprite.play("idle_south")	
 			body_sprite.play("idle_down")
 			
 		elif facing == dir.N:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("idle_north")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("idle_north")
+				helmet_sprite.play("idle_north")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("idle_north")
+				leggings_sprite.play("idle_north")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("idle_north")
+				gauntlet_sprite.play("idle_north")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("idle_north")	
+				weapon_sprite.play("idle_north")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("idle_north")	
+				shield_sprite.play("idle_north")	
 			body_sprite.play("idle_up")
 			
 		elif facing == dir.W:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("idle_west")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("idle_west")
+				helmet_sprite.play("idle_west")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("idle_west")
+				leggings_sprite.play("idle_west")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("idle_west")
+				gauntlet_sprite.play("idle_west")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("idle_west")	
+				weapon_sprite.play("idle_west")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("idle_west")	
+				shield_sprite.play("idle_west")	
 			body_sprite.play("idle_left")
 			
 		elif facing == dir.E:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("idle_east")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("idle_east")
+				helmet_sprite.play("idle_east")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("idle_east")
+				leggings_sprite.play("idle_east")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("idle_east")
+				gauntlet_sprite.play("idle_east")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("idle_east")	
+				weapon_sprite.play("idle_east")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("idle_east")	
+				shield_sprite.play("idle_east")	
 			body_sprite.play("idle_right")
 			
 		elif facing == dir.NE:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("idle_NE")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("idle_NE")
+				helmet_sprite.play("idle_NE")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("idle_NE")
+				leggings_sprite.play("idle_NE")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("idle_NE")
+				gauntlet_sprite.play("idle_NE")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("idle_NE")	
+				weapon_sprite.play("idle_NE")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("idle_NE")	
+				shield_sprite.play("idle_NE")	
 			body_sprite.play("idle_NE")
 			
 		elif facing == dir.SE:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("idle_SE")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("idle_SE")
+				helmet_sprite.play("idle_SE")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("idle_SE")
+				leggings_sprite.play("idle_SE")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("idle_SE")
+				gauntlet_sprite.play("idle_SE")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("idle_SE")	
+				weapon_sprite.play("idle_SE")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("idle_SE")	
+				shield_sprite.play("idle_SE")	
 			body_sprite.play("idle_SE")
 			
 		elif facing == dir.SW:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("idle_SW")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("idle_SW")
+				helmet_sprite.play("idle_SW")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("idle_SW")
+				leggings_sprite.play("idle_SW")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("idle_SW")
+				gauntlet_sprite.play("idle_SW")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("idle_SW")	
+				weapon_sprite.play("idle_SW")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("idle_SW")	
+				shield_sprite.play("idle_SW")	
 			body_sprite.play("idle_SW")
 			
 		elif facing == dir.NW:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("idle_NW")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("idle_NW")
+				helmet_sprite.play("idle_NW")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("idle_NW")
+				leggings_sprite.play("idle_NW")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("idle_NW")
+				gauntlet_sprite.play("idle_NW")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("idle_NW")	
+				weapon_sprite.play("idle_NW")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("idle_NW")	
+				shield_sprite.play("idle_NW")	
 			body_sprite.play("idle_NW")
 			
 		currentFrame = 0
-	else:
+	else: #walking
 		currentFrame = body_sprite.get_frame()
 		currentAnimation = body_sprite.get_animation()
 		if facing == dir.S:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("walk_south")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("walk_south")
+				helmet_sprite.play("walk_south")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("walk_south")
+				leggings_sprite.play("walk_south")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("walk_south")
+				gauntlet_sprite.play("walk_south")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("walk_south")	
+				weapon_sprite.play("walk_south")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("walk_south")		
+				shield_sprite.play("walk_south")		
 			body_sprite.play("walk_down")
 			
 		elif facing == dir.N:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("walk_north")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("walk_north")
+				helmet_sprite.play("walk_north")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("walk_north")
+				leggings_sprite.play("walk_north")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("walk_north")
+				gauntlet_sprite.play("walk_north")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("walk_north")	
+				weapon_sprite.play("walk_north")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("walk_north")	
+				shield_sprite.play("walk_north")	
 			body_sprite.play("walk_up")
 			
 		elif facing == dir.W:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("walk_west")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("walk_west")
+				helmet_sprite.play("walk_west")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("walk_west")
+				leggings_sprite.play("walk_west")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("walk_west")
+				gauntlet_sprite.play("walk_west")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("walk_west")	
+				weapon_sprite.play("walk_west")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("walk_west")	
+				shield_sprite.play("walk_west")	
 			body_sprite.play("walk_left")
 			
 		elif facing == dir.E:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("walk_east")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("walk_east")
+				helmet_sprite.play("walk_east")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("walk_east")
+				leggings_sprite.play("walk_east")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("walk_east")
+				gauntlet_sprite.play("walk_east")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("walk_east")	
+				weapon_sprite.play("walk_east")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("walk_east")	
+				shield_sprite.play("walk_east")	
 			body_sprite.play("walk_right")
 			
 		elif facing == dir.NE:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("walk_NE")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("walk_NE")
+				helmet_sprite.play("walk_NE")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("walk_NE")
+				leggings_sprite.play("walk_NE")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("walk_NE")
+				gauntlet_sprite.play("walk_NE")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("walk_NE")	
+				weapon_sprite.play("walk_NE")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("walk_NE")	
+				shield_sprite.play("walk_NE")	
 			body_sprite.play("walk_NE")
 			
 		elif facing == dir.SE:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("walk_SE")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("walk_SE")
+				helmet_sprite.play("walk_SE")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("walk_SE")
+				leggings_sprite.play("walk_SE")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("walk_SE")
+				gauntlet_sprite.play("walk_SE")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("walk_SE")	
+				weapon_sprite.play("walk_SE")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("walk_SE")	
+				shield_sprite.play("walk_SE")	
 			body_sprite.play("walk_SE")
 			
 		elif facing == dir.SW:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("walk_SW")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("walk_SW")
+				helmet_sprite.play("walk_SW")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("walk_SW")
+				leggings_sprite.play("walk_SW")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("walk_SW")
+				gauntlet_sprite.play("walk_SW")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("walk_SW")	
+				weapon_sprite.play("walk_SW")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("walk_SW")	
+				shield_sprite.play("walk_SW")	
 			body_sprite.play("walk_SW")
 			
 		elif facing == dir.NW:
-			if(shirt_type == armor_mat.CLOTH):
-				cloth_shirt_sprite.play("walk_NW")
 			if helmet_type == armor_mat.CLOTH:
-				cloth_helmet_sprite.play("walk_NW")
+				helmet_sprite.play("walk_NW")
 			if pants_type == armor_mat.CLOTH:
-				cloth_pants_sprite.play("walk_NW")
+				leggings_sprite.play("walk_NW")
 			if gloves_type == armor_mat.CLOTH:
-				cloth_gloves_sprite.play("walk_NW")
+				gauntlet_sprite.play("walk_NW")
 			if weapon_type == armor_mat.CLOTH:
-				level1_weapon_sprite.play("walk_NW")	
+				weapon_sprite.play("walk_NW")	
 			if shield_type == armor_mat.CLOTH:
-				level1_shield_sprite.play("walk_NW")	
+				shield_sprite.play("walk_NW")	
 			body_sprite.play("walk_NW")
 			
 		if currentAnimation != body_sprite.get_animation():
 			body_sprite.set_frame_and_progress(currentFrame, 0.0)
-			cloth_shirt_sprite.set_frame_and_progress(currentFrame, 0.0)
-			cloth_pants_sprite.set_frame_and_progress(currentFrame, 0.0)
-			cloth_helmet_sprite.set_frame_and_progress(currentFrame, 0.0)
-			cloth_gloves_sprite.set_frame_and_progress(currentFrame, 0.0)
-			level1_weapon_sprite.set_frame_and_progress(currentFrame, 0.0)
-			level1_shield_sprite.set_frame_and_progress(currentFrame, 0.0)
+			chest_sprite.set_frame_and_progress(currentFrame, 0.0)
+			helmet_sprite.set_frame_and_progress(currentFrame, 0.0)
+			leggings_sprite.set_frame_and_progress(currentFrame, 0.0)
+			gauntlet_sprite.set_frame_and_progress(currentFrame, 0.0)
+			weapon_sprite.set_frame_and_progress(currentFrame, 0.0)
+			shield_sprite.set_frame_and_progress(currentFrame, 0.0)
 		
 	# Apply movement
 	if directionX:
@@ -355,17 +382,36 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	move_and_slide()
-	
 
-func load_resources(path):
-	var dir = DirAccess.open(path)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			# do something with the file
-			var animation = load(file_name)
-			loaded_animations.append(animation)
-			file_name = dir.get_next()
-		return loaded_animations
+
+func set_chest_type(type):
+	shirt_type = type
+
+func start_load_thread():
+	load_thread.start(load_resource)
+
+func load_resource():
+	#if load_shirt:
+		var path = "res://Assets/sprites/SpriteFrames/Human_Shirt.tres"
+		new_chest_sprite = load(path)
+		shirt_type = 0
+		load_shirt = false
+		#call_deferred("set_chest_frames")
+		#call_deferred("add_animation", new_chest_sprite)
+
+func set_chest_frames():
+	load_thread.wait_to_finish()
+	chest_sprite.sprite_frames = new_chest_sprite
+	chest_sprite.frame = body_sprite.frame
 	
+func add_animation(armor_type):
+	if(armor_type == armor_mat.CLOTH):
+		var path = "res://Assets/sprites/SpriteFrames/Human_Shirt.tres"
+		start_load_thread()
+		
+func remove_animation(asset):
+	loaded_animations.erase(asset)
+	
+func clear_spriteframes():
+	chest_sprite.sprite_frames = null
+	shirt_type = -1
