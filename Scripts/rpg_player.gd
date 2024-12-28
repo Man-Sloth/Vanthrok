@@ -112,41 +112,42 @@ func _physics_process(delta):
 			else:
 				facing = dir.N
 	
-	if shirt_type != -1:
-		if idle:
-			if facing == dir.S:
-				chest_sprite.play("idle_south")
-			elif facing == dir.N:
-				chest_sprite.play("idle_north")
-			elif facing == dir.W:
-				chest_sprite.play("idle_west")
-			elif facing == dir.E:
-				chest_sprite.play("idle_east")
-			elif facing == dir.NE:
-				chest_sprite.play("idle_NE")
-			elif facing == dir.SE:
-				chest_sprite.play("idle_SE")
-			elif facing == dir.SW:
-				chest_sprite.play("idle_SW")
-			elif facing == dir.NW:
-				chest_sprite.play("idle_NW")
-		else:
-			if facing == dir.S:
-				chest_sprite.play("walk_south")
-			elif facing == dir.N:
-				chest_sprite.play("walk_north")
-			elif facing == dir.W:
-				chest_sprite.play("walk_west")
-			elif facing == dir.E:
-				chest_sprite.play("walk_east")
-			elif facing == dir.NE:
-				chest_sprite.play("walk_NE")
-			elif facing == dir.SE:
-				chest_sprite.play("walk_SE")
-			elif facing == dir.SW:
-				chest_sprite.play("walk_SW")
-			elif facing == dir.NW:
-				chest_sprite.play("walk_NW")
+	if idle:
+		if facing == dir.S:
+			chest_sprite.play("idle_south")
+		elif facing == dir.N:
+			chest_sprite.play("idle_north")
+		elif facing == dir.W:
+			chest_sprite.play("idle_west")
+		elif facing == dir.E:
+			chest_sprite.play("idle_east")
+		elif facing == dir.NE:
+			chest_sprite.play("idle_NE")
+		elif facing == dir.SE:
+			chest_sprite.play("idle_SE")
+		elif facing == dir.SW:
+			chest_sprite.play("idle_SW")
+		elif facing == dir.NW:
+			chest_sprite.play("idle_NW")
+	else:
+		if facing == dir.S:
+			chest_sprite.play("walk_south")
+		elif facing == dir.N:
+			chest_sprite.play("walk_north")
+		elif facing == dir.W:
+			chest_sprite.play("walk_west")
+		elif facing == dir.E:
+			chest_sprite.play("walk_east")
+		elif facing == dir.NE:
+			chest_sprite.play("walk_NE")
+		elif facing == dir.SE:
+			chest_sprite.play("walk_SE")
+		elif facing == dir.SW:
+			chest_sprite.play("walk_SW")
+		elif facing == dir.NW:
+			chest_sprite.play("walk_NW")
+	
+	chest_sprite.frame = body_sprite.frame
 			
 	if idle:
 		if facing == dir.S:
@@ -253,7 +254,7 @@ func _physics_process(delta):
 				shield_sprite.play("idle_NW")	
 			body_sprite.play("idle_NW")
 			
-		currentFrame = 0
+		
 	else: #walking
 		currentFrame = body_sprite.get_frame()
 		currentAnimation = body_sprite.get_animation()
