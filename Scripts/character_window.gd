@@ -28,13 +28,15 @@ var moving_start = Vector2(0,0)
 var character_window_start = Vector2(0,0)
 var hovering = false
 var inventory_hover = false
-const OBJECTSCENE = preload("res://Scenes/coin.tscn")
+
+
 const DUMMY_CLOTH_SHIRT = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Chest_South.tres")
 const DUMMY_CLOTH_HELMET = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Head_South.tres")
 const DUMMY_CLOTH_LEGGINGS = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Legs_South.tres")
 const DUMMY_CLOTH_ARMS = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Arms_South.tres")
 const DUMMY_LEVEL1_SWORD = preload("res://Assets/sprites/Atlases/Characters/Cloth/Level1_Weapon_South.tres")
 const DUMMY_LEVEL1_SHIELD = preload("res://Assets/sprites/Atlases/Characters/Cloth/Level1_Shield_South.tres")
+const OBJECTSCENE = preload("res://Scenes/object.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,11 +55,11 @@ func _input(event):
 		if event.is_action_released("pickup"):
 			var slot = game_manager.get_pulled_char_location()
 			var inv_slot = game_manager.get_pulled_location()
-			if slot != null:
+			if slot != null: 							# Dropping from another armor slot
 				var object = game_manager.get_held_object()
 				var item_type = object.get_item_type()
 				var armor_type = object.get_armor_type()
-				slot.set_slot_object(OBJECTSCENE.instantiate())
+				slot.set_slot_object(DUMMY_CLOTH_HELMET.instantiate())
 				slot.get_slot_object().visible = false
 				slot.get_slot_object().set_item_type(object.get_item_type())
 				slot.add_child(slot.get_slot_object())
@@ -93,14 +95,15 @@ func _input(event):
 				game_manager.set_held_object(null)
 				game_manager.set_pulled_char_location(slot)
 				game_manager.set_holding(false)
-			elif inv_slot != null:
+			elif inv_slot != null: 			#Dropping from an inventory slot
 				var object = game_manager.get_held_object()
-				inv_slot.set_slot_object(OBJECTSCENE.instantiate())
+				inv_slot.set_slot_object(DUMMY_CLOTH_HELMET.instantiate())
 				inv_slot.get_slot_object().visible = false
 				inv_slot.get_slot_object().set_item_type(object.get_item_type())
 				inv_slot.add_child(inv_slot.get_slot_object())
 				inv_slot.get_slot_object().get_node("AnimatedSprite2D").set_sprite_frames(object.get_node("AnimatedSprite2D").get_sprite_frames())
 				
+				# Release unwanted assets
 				object.delete()
 				game_manager.set_texture(null)
 				game_manager.set_held_object(null)

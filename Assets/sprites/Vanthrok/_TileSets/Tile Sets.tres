@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=17 format=3 uid="uid://cayafb86sxmm7"]
 
 [ext_resource type="Texture2D" uid="uid://h3yxw1p10cdj" path="res://Assets/sprites/Atlases/Walls/Walls.png" id="1_1a1qa"]
-[ext_resource type="PackedScene" uid="uid://7w1ur7aqqvti" path="res://Scenes/coin.tscn" id="2_h6m5e"]
+[ext_resource type="PackedScene" uid="uid://7w1ur7aqqvti" path="res://Scenes/object.tscn" id="2_h6m5e"]
 [ext_resource type="PackedScene" uid="uid://b6lyrmbv1ohcg" path="res://Scenes/Door.tscn" id="3_5p5qe"]
 [ext_resource type="Texture2D" uid="uid://bdpgtbk7l1oh1" path="res://Assets/sprites/Atlases/Ground/Grass.png" id="4_oipgv"]
 [ext_resource type="Texture2D" uid="uid://bj0dbpl0p3dgk" path="res://Assets/sprites/Atlases/Objects(Static)/Mountains.png" id="5_eny1u"]

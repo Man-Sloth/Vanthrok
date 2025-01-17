@@ -16,7 +16,7 @@ var moving_start = Vector2(0,0)
 var backpack_start = Vector2(0,0)
 var hovering = false
 var inventory_hover = false
-const OBJECTSCENE = preload("res://Scenes/coin.tscn")
+const OBJECTSCENE = preload("res://Scenes/object.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_be3yw"]
 [ext_resource type="PackedScene" uid="uid://tha8vlwaxijn" path="res://Scenes/player.tscn" id="1_oopxa"]
-[ext_resource type="Texture2D" uid="uid://cdkocn1vyry2w" path="res://Assets/sprites/world_tileset.png" id="1_uw0ql"]
+[ext_resource type="Texture2D" path="res://Assets/sprites/world_tileset.png" id="1_uw0ql"]
 [ext_resource type="PackedScene" uid="uid://cien1msqp7b15" path="res://Scenes/platform.tscn" id="3_pwp0x"]
-[ext_resource type="PackedScene" uid="uid://7w1ur7aqqvti" path="res://Scenes/coin.tscn" id="4_v13dc"]
+[ext_resource type="PackedScene" uid="uid://7w1ur7aqqvti" path="res://Scenes/object.tscn" id="4_v13dc"]
 [ext_resource type="PackedScene" uid="uid://xwvxyfuob8n3" path="res://Scenes/killzone.tscn" id="5_ehtvy"]
 [ext_resource type="PackedScene" uid="uid://b5enqxhckevs0" path="res://Scenes/slime.tscn" id="6_4xdo7"]
 [ext_resource type="FontFile" uid="uid://b73gg03a02isc" path="res://Assets/fonts/PixelOperator8.ttf" id="7_0racp"]

@@ -1049,7 +1049,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_NW",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,

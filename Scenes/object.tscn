@@ -1,23 +1,23 @@
 [gd_scene load_steps=27 format=3 uid="uid://7w1ur7aqqvti"]
 
-[ext_resource type="Script" path="res://Scripts/coin.gd" id="1_c2ks8"]
-[ext_resource type="Material" uid="uid://delm7ytskxl55" path="res://Assets/shaders/Pink_to_transparent.tres" id="2_7ki3b"]
-[ext_resource type="Texture2D" uid="uid://b2emmoufysvni" path="res://Assets/sprites/Atlases/Items/Level_1_Armor.png" id="3_niveq"]
+[ext_resource type="Script" path="res://Scripts/coin.gd" id="1_n0v4l"]
+[ext_resource type="Material" uid="uid://delm7ytskxl55" path="res://Assets/shaders/Pink_to_transparent.tres" id="2_oibwy"]
+[ext_resource type="Texture2D" uid="uid://b2emmoufysvni" path="res://Assets/sprites/Atlases/Items/Level_1_Armor.png" id="3_1go0a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kthml"]
-atlas = ExtResource("3_niveq")
+atlas = ExtResource("3_1go0a")
 region = Rect2(256, 0, 256, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1tlg"]
-atlas = ExtResource("3_niveq")
+atlas = ExtResource("3_1go0a")
 region = Rect2(256, 128, 256, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gkca3"]
-atlas = ExtResource("3_niveq")
+atlas = ExtResource("3_1go0a")
 region = Rect2(512, 0, 256, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4w8c"]
-atlas = ExtResource("3_niveq")
+atlas = ExtResource("3_1go0a")
 region = Rect2(0, 128, 256, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jwg8t"]
@@ -57,11 +57,11 @@ region = Rect2(160, 0, 16, 16)
 region = Rect2(176, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2r7x"]
-atlas = ExtResource("3_niveq")
+atlas = ExtResource("3_1go0a")
 region = Rect2(0, 0, 256, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnucr"]
-atlas = ExtResource("3_niveq")
+atlas = ExtResource("3_1go0a")
 region = Rect2(512, 128, 256, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r8321"]
@@ -260,15 +260,15 @@ _data = {
 [node name="Coin" type="Area2D"]
 scale = Vector2(2, 2)
 collision_mask = 2
-script = ExtResource("1_c2ks8")
+script = ExtResource("1_n0v4l")
 Item_Type = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = ExtResource("2_7ki3b")
+material = ExtResource("2_oibwy")
 position = Vector2(-0.5, 3)
 scale = Vector2(0.495, 0.495)
 sprite_frames = SubResource("SpriteFrames_r8321")
-animation = &"level1_sword"
+animation = &"cloth_chest"
 autoplay = "cloth_helm"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

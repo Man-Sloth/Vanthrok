@@ -35,6 +35,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		if(holding):
 			set_held_position(event.position - holdOffset)
+			
 func get_texture():
 	return texture_rect.texture
 

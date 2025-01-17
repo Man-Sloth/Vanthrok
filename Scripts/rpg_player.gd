@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var weapon_sprite = $"Weapon Sprite"
 @onready var shield_sprite = $"Shield Sprite"
 
-var new_chest_sprite
+var new_animation
 
 const MALE_NORMAL_MODE = preload("res://Assets/sprites/SpriteFrames/Male_Normal_Mode.tres")
 const MALE_ATTACK_MODE = preload("res://Assets/sprites/SpriteFrames/Male_Attack_Mode.tres")
@@ -49,9 +49,6 @@ func _process(_delta):
 			#ResourceLoader.load_threaded_request("res://Assets/sprites/SpriteFrames/Human_Shirt.tres")
 			#load_thread.start(load_resource)
 		
-	
-func _physics_process(delta):
-	
 	if Input.is_action_just_released("attack_mode"):
 		attack_released = true
 	
@@ -62,13 +59,13 @@ func _physics_process(delta):
 				attack_mode = false
 			else:
 				attack_mode = true
-	
-	
-		
+
 	if attack_mode:
 		body_sprite.sprite_frames = MALE_ATTACK_MODE
 	else:
 		body_sprite.sprite_frames = MALE_NORMAL_MODE
+	
+func _physics_process(delta):
 	
 	# Get the input direction and handle the movement/deceleration.
 	var directionX = Input.get_axis("move_left", "move_right")
@@ -388,30 +385,35 @@ func _physics_process(delta):
 func set_chest_type(type):
 	shirt_type = type
 
-func start_load_thread():
-	load_thread.start(load_resource)
-
-func load_resource():
-	#if load_shirt:
-		var path = "res://Assets/sprites/SpriteFrames/Human_Shirt.tres"
-		new_chest_sprite = load(path)
-		shirt_type = 0
-		load_shirt = false
-		#call_deferred("set_chest_frames")
-		#call_deferred("add_animation", new_chest_sprite)
-
-func set_chest_frames():
-	load_thread.wait_to_finish()
-	chest_sprite.sprite_frames = new_chest_sprite
-	chest_sprite.frame = body_sprite.frame
+func start_load_thread(path, armor_type, item_type):
+	load_thread.start(load_resource.bind([path, armor_type, item_type]))
 	
-func add_animation(armor_type):
+func load_resource(path, armor_type, item_type):
+	new_animation = load(path)
+	
+	
+	
+			
+	#loaded_animations.add(new_animation)
+	#if armor_type == armor_mat.CLOTH:
+	#	if item_type == 1: #Chest piece
+	#		call_deferred("set_chest_frames")
+
+func set_frames(object):
+	if object.get_item_type() == 1:
+		chest_sprite.sprite_frames = object.get_frames().sprite_frames
+		chest_sprite.visible = true
+			
+func add_animation(armor_type, item_type):
+	var path
 	if(armor_type == armor_mat.CLOTH):
-		var path = "res://Assets/sprites/SpriteFrames/Human_Shirt.tres"
-		start_load_thread()
+		if item_type == 1: #Chest piece
+			path = "res://Assets/sprites/SpriteFrames/Human_Shirt.tres"
+	if path != null:
+		start_load_thread(path, armor_type, item_type)
 		
-func remove_animation(asset):
-	loaded_animations.erase(asset)
+func remove_animation(asset_path):
+	loaded_animations.erase(asset_path)
 	
 func clear_spriteframes():
 	chest_sprite.sprite_frames = null

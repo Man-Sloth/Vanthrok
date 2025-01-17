@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ish13sf6118" path="res://Scenes/rpg_player_NEW.tscn" id="5_ca2bj"]
 [ext_resource type="PackedScene" uid="uid://ba7trey8luw8y" path="res://Scenes/backpack.tscn" id="5_f7xvq"]
 [ext_resource type="PackedScene" uid="uid://d0qcnn1ns267x" path="res://Scenes/Controls.tscn" id="7_i8ybn"]
-[ext_resource type="PackedScene" uid="uid://7w1ur7aqqvti" path="res://Scenes/coin.tscn" id="7_vy5p8"]
+[ext_resource type="PackedScene" uid="uid://7w1ur7aqqvti" path="res://Scenes/object.tscn" id="7_vy5p8"]
 [ext_resource type="PackedScene" uid="uid://dv7vk3ew136ws" path="res://Scenes/CharacterWin.tscn" id="8_2ciys"]
 
 [sub_resource type="TileSet" id="TileSet_wn4lu"]

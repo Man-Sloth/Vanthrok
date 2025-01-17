@@ -10,7 +10,7 @@ animations = [{
 "frames": [],
 "loop": true,
 "name": &"idle_NW",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [],
 "loop": true,

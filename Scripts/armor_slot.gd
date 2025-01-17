@@ -22,9 +22,8 @@ enum ITEM_TYPE {Helm, Chest, Legs, Arms, Weapon, Shield, Stackable, Non_Stackabl
 @export var Item_Type: ITEM_TYPE
 var armor_type_last_frame = -1
 
-const OBJECTSCENE = preload("res://Scenes/coin.tscn")
-var dummy_chest
-#const DUMMY_CLOTH_SHIRT = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Chest_South.tres")
+const OBJECTSCENE = preload("res://Scenes/object.tscn")
+const DUMMY_CLOTH_SHIRT = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Chest_South.tres")
 const DUMMY_CLOTH_HAT = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Head_South.tres")
 const DUMMY_CLOTH_LEGGINGS = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Legs_South.tres")
 const DUMMY_CLOTH_GLOVES = preload("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Arms_South.tres")
@@ -55,27 +54,38 @@ func _input(event):
 				var item_type = object.get_item_type()
 				var armor_type = object.get_armor_type()
 				
-				if armor_type != armor_type_last_frame: # new armor type was placed in location. Need to load new asset
-					if armor_type == 0: #cloth
-						if item_type == 1: #chest
-							chest.texture = load("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Chest_South.tres")
-							chest.visible = true
-							chest_sprite.visible = true
-							player.set_chest_frames()
-						armor_type_last_frame = armor_type
+				#if armor_type != armor_type_last_frame: # new armor type was placed in location. Need to load new asset
+					#if armor_type == 0: #cloth
+						#if item_type == 1: #chest
+							#chest.texture = load("res://Assets/sprites/Atlases/Characters/Cloth/Cloth_Chest_South.tres")
+							#chest.visible = true
+							#chest_sprite.visible = true
+							#player.set_chest_frames()
+						#armor_type_last_frame = armor_type
 				
 				slot_object = OBJECTSCENE.instantiate()
 				slot_object.visible = false
 				slot_object.set_item_type(object.get_item_type())
+				slot_object.set_frames(object.get_frames())
+				slot_object.set_dummy(object.get_dummy())
+				#slot_object.get_node("AnimatedSprite2D").set_sprite_frames(object.get_node("AnimatedSprite2D").get_sprite_frames())
+				#slot_object.get_node("AnimatedSprite2D").sprite_frames = object.get_node("AnimatedSprite2D").sprite_frames
 				add_child(slot_object)
-				slot_object.get_node("AnimatedSprite2D").set_sprite_frames(object.get_node("AnimatedSprite2D").get_sprite_frames())
+				player.set_frames(slot_object)
+				
+				if item_type == 1: #chest
+					chest.texture = slot_object.get_dummy().texture
+					chest.visible = true
 				
 				if armor_type == 0: #cloth
-					
 					if item_type == 0: #head
 						head.texture = DUMMY_CLOTH_HAT
 						head.visible = true
 						helmet_sprite.visible = true
+					#elif item_type == 1: #chest
+						#chest.texture = DUMMY_CLOTH_SHIRT
+						#chest.visible = true
+						chest_sprite.visible = true	
 					elif item_type == 2: #leggings
 						legs.texture = DUMMY_CLOTH_LEGGINGS
 						legs.visible = true
