@@ -1,24 +1,25 @@
-[gd_scene load_steps=18 format=3 uid="uid://dv7vk3ew136ws"]
+[gd_scene load_steps=16 format=3 uid="uid://dv7vk3ew136ws"]
 
 [ext_resource type="Script" path="res://Scripts/character_window.gd" id="1_nm0ds"]
-[ext_resource type="Texture2D" uid="uid://dc0110ia4vdec" path="res://Assets/sprites/UI/Character3Window.png" id="2_pn2cv"]
-[ext_resource type="Texture2D" uid="uid://c5ptgkq2hlvla" path="res://Assets/sprites/UI/Bag Background.png" id="3_jdwje"]
-[ext_resource type="Texture2D" uid="uid://cpfqsu114bbul" path="res://Assets/sprites/UI/XButton.png" id="5_qbidb"]
+[ext_resource type="Texture2D" uid="uid://djfun3oemvimr" path="res://Assets/sprites/UI/General UI/Background.png" id="2_v25jn"]
+[ext_resource type="Texture2D" uid="uid://c1q58nbejmn70" path="res://Assets/sprites/UI/xbutton2.png" id="3_stvd7"]
 [ext_resource type="Texture2D" uid="uid://b0ua4bnd2wibm" path="res://Assets/sprites/UI/Resize_Button.png" id="6_3c4dr"]
-[ext_resource type="Texture2D" uid="uid://cbbhqyk42xrmb" path="res://Assets/sprites/UI/platedark.png" id="7_5vw0h"]
+[ext_resource type="Texture2D" uid="uid://d18q81hcio2dn" path="res://Assets/sprites/UI/General UI/LightBackground.png" id="8_1wm2x"]
 [ext_resource type="Theme" uid="uid://c58omhf8eve5i" path="res://UI_Theme.tres" id="8_5qh2x"]
 [ext_resource type="Texture2D" uid="uid://dprqf1l8psiuh" path="res://Assets/sprites/Atlases/Characters/Player/PlayerSouth.tres" id="8_vxotp"]
 [ext_resource type="Material" uid="uid://delm7ytskxl55" path="res://Assets/shaders/Pink_to_transparent.tres" id="9_c3cet"]
 [ext_resource type="Script" path="res://Scripts/armor_slot.gd" id="9_dlavu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8v2wp"]
-texture = ExtResource("2_pn2cv")
+texture = ExtResource("2_v25jn")
+texture_margin_left = 256.0
+texture_margin_top = 256.0
+texture_margin_right = 256.0
+texture_margin_bottom = 256.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok5o0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_disle"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48q03"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2ri7"]
 
@@ -68,20 +69,21 @@ theme_override_constants/margin_bottom = 275
 
 [node name="Exit Window" type="Button" parent="."]
 layout_mode = 2
-offset_left = -44.0
-offset_top = -672.0
-offset_right = 12.0
-offset_bottom = -616.0
-scale = Vector2(0.72, 0.72)
+offset_left = -53.1468
+offset_top = -648.951
+offset_right = 566.853
+offset_bottom = -28.951
+scale = Vector2(0.05, 0.05)
 mouse_filter = 1
 theme_override_colors/icon_pressed_color = Color(0.881937, 0.881937, 0.881937, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ok5o0")
-icon = ExtResource("5_qbidb")
+icon = ExtResource("3_stvd7")
 flat = true
 icon_alignment = 2
 vertical_icon_alignment = 0
 
 [node name="Resize Window" type="Button" parent="."]
+visible = false
 layout_mode = 2
 offset_left = -544.0
 offset_top = -672.0
@@ -98,37 +100,56 @@ vertical_icon_alignment = 0
 
 [node name="Title Plate" type="Button" parent="."]
 layout_mode = 0
-offset_left = -404.0
-offset_top = -708.0
-offset_right = -140.0
-offset_bottom = -636.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_48q03")
+offset_left = -373.427
+offset_top = -695.105
+offset_right = 1376.57
+offset_bottom = -183.105
+scale = Vector2(0.115, 0.115)
 theme_override_styles/hover = SubResource("StyleBoxEmpty_d2ri7")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_2klv4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yfb0b")
-icon = ExtResource("7_5vw0h")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -373.427
+offset_top = -695.105
+offset_right = 1376.57
+offset_bottom = -183.105
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("2_v25jn")
+patch_margin_left = 256
+patch_margin_top = 256
+patch_margin_right = 256
+patch_margin_bottom = 256
 
 [node name="Title Text" type="Label" parent="."]
 layout_mode = 0
-offset_left = -381.0
-offset_top = -689.0
-offset_right = -170.0
-offset_bottom = -655.0
+offset_left = -380.42
+offset_top = -686.713
+offset_right = -169.42
+offset_bottom = -651.713
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 25
 text = "Character"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Background" type="TextureRect" parent="."]
-modulate = Color(0.344673, 0.335517, 0.321534, 1)
-layout_mode = 2
+[node name="PlayerDummyBackground" type="NinePatchRect" parent="."]
+modulate = Color(0.359069, 0.359069, 0.359069, 1)
+layout_mode = 0
 offset_left = -336.0
 offset_top = -525.0
-offset_right = 1649.0
-offset_bottom = 3251.0
-scale = Vector2(0.067, 0.067)
-mouse_filter = 2
-texture = ExtResource("3_jdwje")
+offset_right = 859.0
+offset_bottom = 1681.0
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("2_v25jn")
+patch_margin_left = 256
+patch_margin_top = 256
+patch_margin_right = 256
+patch_margin_bottom = 256
 
 [node name="PlayerDummy" type="TextureRect" parent="."]
 layout_mode = 2
@@ -219,20 +240,18 @@ offset_right = 3321.0
 offset_bottom = 2970.0
 scale = Vector2(0.02, 0.02)
 mouse_filter = 0
-texture = ExtResource("3_jdwje")
+texture = ExtResource("8_1wm2x")
 stretch_mode = 4
 script = ExtResource("9_dlavu")
 
 [node name="item_sprite" type="TextureRect" parent="ArmorSlots/Helmet"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -773.776
-offset_top = 500.0
-offset_right = -4147.78
-offset_bottom = -2952.0
-scale = Vector2(20, 20)
+offset_left = -1866.43
+offset_top = 10.155
+offset_right = -1610.43
+offset_bottom = 138.155
+scale = Vector2(28, 28)
 
 [node name="Chest" type="TextureRect" parent="ArmorSlots"]
 layout_mode = 2
@@ -242,7 +261,7 @@ offset_right = 3196.0
 offset_bottom = 3088.0
 scale = Vector2(0.02, 0.02)
 mouse_filter = 0
-texture = ExtResource("3_jdwje")
+texture = ExtResource("8_1wm2x")
 stretch_mode = 4
 script = ExtResource("9_dlavu")
 Item_Type = 1
@@ -252,11 +271,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.988
 anchor_bottom = 0.974
-offset_left = -747.553
-offset_top = 474.126
-offset_right = -4077.99
-offset_bottom = -2884.79
-scale = Vector2(20, 20)
+offset_left = -1866.43
+offset_top = -85.315
+offset_right = -5196.87
+offset_bottom = -3444.23
+scale = Vector2(28, 28)
 
 [node name="Arms" type="TextureRect" parent="ArmorSlots"]
 layout_mode = 2
@@ -266,7 +285,7 @@ offset_right = 3452.0
 offset_bottom = 3088.0
 scale = Vector2(0.02, 0.02)
 mouse_filter = 0
-texture = ExtResource("3_jdwje")
+texture = ExtResource("8_1wm2x")
 stretch_mode = 4
 script = ExtResource("9_dlavu")
 Item_Type = 3
@@ -276,11 +295,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.988
 anchor_bottom = 1.0
-offset_left = -750.35
-offset_top = 544.056
-offset_right = -4080.79
-offset_bottom = -2907.94
-scale = Vector2(20, 20)
+offset_left = -1869.23
+offset_top = -15.385
+offset_right = -5199.67
+offset_bottom = -3467.38
+scale = Vector2(28, 28)
 
 [node name="Shield" type="TextureRect" parent="ArmorSlots"]
 layout_mode = 2
@@ -290,7 +309,7 @@ offset_right = 3452.0
 offset_bottom = 3209.0
 scale = Vector2(0.02, 0.02)
 mouse_filter = 0
-texture = ExtResource("3_jdwje")
+texture = ExtResource("8_1wm2x")
 stretch_mode = 4
 script = ExtResource("9_dlavu")
 Item_Type = 5
@@ -300,11 +319,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.988
 anchor_bottom = 0.974
-offset_left = -750.349
-offset_top = 508.041
-offset_right = -4080.79
-offset_bottom = -2850.88
-scale = Vector2(20, 20)
+offset_left = -1869.23
+offset_top = -51.4
+offset_right = -5199.67
+offset_bottom = -3410.32
+scale = Vector2(28, 28)
 
 [node name="Weapon" type="TextureRect" parent="ArmorSlots"]
 layout_mode = 2
@@ -314,7 +333,7 @@ offset_right = 3196.0
 offset_bottom = 3209.0
 scale = Vector2(0.02, 0.02)
 mouse_filter = 0
-texture = ExtResource("3_jdwje")
+texture = ExtResource("8_1wm2x")
 stretch_mode = 4
 script = ExtResource("9_dlavu")
 Item_Type = 4
@@ -324,11 +343,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -747.552
-offset_top = 508.041
-offset_right = -4121.55
-offset_bottom = -2943.96
-scale = Vector2(20, 20)
+offset_left = -1866.43
+offset_top = -51.4
+offset_right = -5240.43
+offset_bottom = -3503.4
+scale = Vector2(28, 28)
 
 [node name="Legs" type="TextureRect" parent="ArmorSlots"]
 layout_mode = 2
@@ -338,7 +357,7 @@ offset_right = 3321.0
 offset_bottom = 3342.0
 scale = Vector2(0.02, 0.02)
 mouse_filter = 0
-texture = ExtResource("3_jdwje")
+texture = ExtResource("8_1wm2x")
 stretch_mode = 4
 script = ExtResource("9_dlavu")
 Item_Type = 2
@@ -348,11 +367,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.988
 anchor_bottom = 1.0
-offset_left = -773.776
-offset_top = 571.329
-offset_right = -4104.22
-offset_bottom = -2880.67
-scale = Vector2(20, 20)
+offset_left = -1892.66
+offset_top = 11.888
+offset_right = -5223.1
+offset_bottom = -3440.11
+scale = Vector2(28, 28)
 
 [node name="Helm Text" type="Label" parent="."]
 layout_mode = 0
@@ -362,6 +381,9 @@ offset_right = -253.0
 offset_bottom = -606.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Helm"
 
 [node name="Chest Text" type="Label" parent="."]
@@ -372,17 +394,23 @@ offset_right = -376.0
 offset_bottom = -491.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Chest
 "
 
 [node name="Arms Text" type="Label" parent="."]
 layout_mode = 0
 offset_left = -183.217
-offset_top = -520.28
+offset_top = -517.482
 offset_right = -102.217
-offset_bottom = -492.28
+offset_bottom = -489.482
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Gauntlets"
 
 [node name="Weapon text" type="Label" parent="."]
@@ -393,33 +421,41 @@ offset_right = -364.0
 offset_bottom = -372.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Weapon
 "
 
 [node name="Shield Text" type="Label" parent="."]
 layout_mode = 0
-offset_left = -170.0
-offset_top = -400.0
-offset_right = -116.0
-offset_bottom = -372.0
+offset_left = -172.028
+offset_top = -394.406
+offset_right = -118.028
+offset_bottom = -366.406
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Shield
 "
 
 [node name="Legs Text" type="Label" parent="."]
 layout_mode = 0
-offset_left = -297.0
-offset_top = -268.0
-offset_right = -253.0
-offset_bottom = -240.0
+offset_left = -296.504
+offset_top = -262.937
+offset_right = -252.504
+offset_bottom = -234.937
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Legs
 "
 
 [node name="Name Value" type="Label" parent="."]
-self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
 layout_mode = 0
 offset_left = -485.0
 offset_top = -619.0
@@ -427,10 +463,12 @@ offset_right = -394.0
 offset_bottom = -591.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
-text = "Man Sloth"
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Dude Guy"
 
 [node name="Level Tag" type="Label" parent="."]
-self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
 layout_mode = 0
 offset_left = -140.0
 offset_top = -619.0
@@ -438,16 +476,21 @@ offset_right = -49.0
 offset_bottom = -591.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Level: "
 
 [node name="Level Value" type="Label" parent="."]
 layout_mode = 0
-offset_left = -79.0
-offset_top = -619.0
-offset_right = 12.0
-offset_bottom = -591.0
+offset_left = -79.7203
+offset_top = -622.378
+offset_right = 11.2797
+offset_bottom = -594.378
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "69
 "
 
@@ -460,6 +503,9 @@ offset_right = -425.0
 offset_bottom = -39.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Exp:"
 horizontal_alignment = 2
 
@@ -471,6 +517,8 @@ offset_right = -313.0
 offset_bottom = -8.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "9564 / 10000"
 
 [node name="Health Tag" type="Label" parent="."]
@@ -482,6 +530,9 @@ offset_right = -425.0
 offset_bottom = -165.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Health:"
 horizontal_alignment = 2
 
@@ -493,6 +544,8 @@ offset_right = -313.0
 offset_bottom = -134.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "9001"
 
 [node name="Armor Tag" type="Label" parent="."]
@@ -504,6 +557,9 @@ offset_right = -425.0
 offset_bottom = -123.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Armor:
 "
 horizontal_alignment = 2
@@ -516,6 +572,8 @@ offset_right = -313.0
 offset_bottom = -92.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "420
 "
 
@@ -528,6 +586,9 @@ offset_right = -425.0
 offset_bottom = -81.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Weight:
 "
 horizontal_alignment = 2
@@ -540,6 +601,8 @@ offset_right = -313.0
 offset_bottom = -50.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "185
 "
 
@@ -552,6 +615,9 @@ offset_right = -87.0
 offset_bottom = -165.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Strength:
 "
 horizontal_alignment = 2
@@ -564,6 +630,8 @@ offset_right = 18.0
 offset_bottom = -134.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "42"
 
 [node name="Dexterity Tag" type="Label" parent="."]
@@ -575,6 +643,9 @@ offset_right = -87.0
 offset_bottom = -122.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Dexterity:
 "
 horizontal_alignment = 2
@@ -587,6 +658,8 @@ offset_right = 18.0
 offset_bottom = -92.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "666"
 
 [node name="Inteligence Tag" type="Label" parent="."]
@@ -598,6 +671,9 @@ offset_right = -81.0
 offset_bottom = -81.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Inteligence: "
 horizontal_alignment = 2
 
@@ -609,6 +685,8 @@ offset_right = 18.0
 offset_bottom = -50.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "276
 "
 
@@ -621,6 +699,9 @@ offset_right = -86.0
 offset_bottom = -38.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Constitution:"
 horizontal_alignment = 2
 
@@ -632,6 +713,8 @@ offset_right = 18.0
 offset_bottom = -7.0
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "101"
 
 [connection signal="mouse_entered" from="PanelContainer" to="." method="_on_panel_container_mouse_entered"]

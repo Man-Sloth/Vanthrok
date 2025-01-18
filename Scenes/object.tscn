@@ -3,10 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/coin.gd" id="1_n0v4l"]
 [ext_resource type="Material" uid="uid://delm7ytskxl55" path="res://Assets/shaders/Pink_to_transparent.tres" id="2_oibwy"]
 [ext_resource type="Texture2D" uid="uid://b2emmoufysvni" path="res://Assets/sprites/Atlases/Items/Level_1_Armor.png" id="3_1go0a"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kthml"]
-atlas = ExtResource("3_1go0a")
-region = Rect2(256, 0, 256, 128)
+[ext_resource type="Texture2D" uid="uid://i4xtua4uwnop" path="res://Assets/sprites/Field Gloves.png" id="3_31hoa"]
+[ext_resource type="Texture2D" uid="uid://dfhb3m04rvmgg" path="res://Assets/sprites/Rusty Sword.png" id="4_n04ja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1tlg"]
 atlas = ExtResource("3_1go0a")
@@ -60,15 +58,11 @@ region = Rect2(176, 0, 16, 16)
 atlas = ExtResource("3_1go0a")
 region = Rect2(0, 0, 256, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qnucr"]
-atlas = ExtResource("3_1go0a")
-region = Rect2(512, 128, 256, 128)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_r8321"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kthml")
+"texture": ExtResource("3_31hoa")
 }],
 "loop": true,
 "name": &"cloth_arms",
@@ -149,7 +143,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qnucr")
+"texture": ExtResource("4_n04ja")
 }],
 "loop": true,
 "name": &"level1_sword",
@@ -268,7 +262,7 @@ material = ExtResource("2_oibwy")
 position = Vector2(-0.5, 3)
 scale = Vector2(0.495, 0.495)
 sprite_frames = SubResource("SpriteFrames_r8321")
-animation = &"cloth_chest"
+animation = &"cloth_arms"
 autoplay = "cloth_helm"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,0 +1,345 @@
+[gd_scene load_steps=13 format=3 uid="uid://3puy7oumhn3g"]
+
+[ext_resource type="Texture2D" uid="uid://djfun3oemvimr" path="res://Assets/sprites/UI/General UI/Background.png" id="1_ntid7"]
+[ext_resource type="Texture2D" uid="uid://buvfih5pw01rd" path="res://Assets/sprites/UI/Health Bar/0100.png" id="2_c73eo"]
+[ext_resource type="Texture2D" uid="uid://be8v8q7l5nx3e" path="res://Assets/sprites/UI/General UI/ScreenBorder.png" id="4_beb41"]
+[ext_resource type="Texture2D" uid="uid://cymi72djn5jvj" path="res://Assets/sprites/UI/Health Bar/0001.png" id="5_877a2"]
+[ext_resource type="Texture2D" uid="uid://bpwr1tmo55sd7" path="res://Assets/sprites/UI/Mana Bar/0001.png" id="5_wij5o"]
+[ext_resource type="Texture2D" uid="uid://bjbnbvyiy28ul" path="res://Assets/sprites/UI/Experience Bar/0065.png" id="6_vev0y"]
+[ext_resource type="Texture2D" uid="uid://crw0m256fdf2w" path="res://Assets/sprites/UI/Encumbrance Bar/0001.png" id="6_ygd67"]
+[ext_resource type="Texture2D" uid="uid://dceu7gl1webrl" path="res://Assets/sprites/UI/Alignment Bar.png" id="8_no6n2"]
+[ext_resource type="Theme" uid="uid://c58omhf8eve5i" path="res://UI_Theme.tres" id="9_6c6vf"]
+[ext_resource type="Texture2D" uid="uid://0y1ligqals80" path="res://Assets/sprites/UI/Food Bar/0081.png" id="9_kg1l6"]
+[ext_resource type="Texture2D" uid="uid://0fyqb1i8r87u" path="res://Assets/sprites/UI/AlignmentSelector.png" id="11_gsd71"]
+[ext_resource type="Texture2D" uid="uid://bgcg5vqgi5xef" path="res://Assets/sprites/UI/DayNight360/0001.png" id="12_m3oj0"]
+
+[node name="Status Bars" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_right = -1920.0
+offset_bottom = -1084.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 3496.0
+offset_bottom = 1013.91
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("1_ntid7")
+patch_margin_left = 256
+patch_margin_top = 256
+patch_margin_right = 256
+patch_margin_bottom = 256
+
+[node name="Health" type="Label" parent="."]
+layout_mode = 2
+offset_left = 22.0
+offset_top = 50.05
+offset_right = 80.0
+offset_bottom = 78.05
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("9_6c6vf")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Health"
+
+[node name="Mana" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 66.665
+offset_right = 81.0
+offset_bottom = 94.665
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("9_6c6vf")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Mana
+"
+
+[node name="Food" type="Label" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 85.435
+offset_right = 73.0
+offset_bottom = 113.435
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("9_6c6vf")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Food
+"
+
+[node name="Experience" type="Label" parent="."]
+layout_mode = 2
+offset_left = 203.333
+offset_top = 48.29
+offset_right = 297.333
+offset_bottom = 76.29
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("9_6c6vf")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Experience
+"
+
+[node name="Encumbrance" type="Label" parent="."]
+layout_mode = 0
+offset_left = 194.667
+offset_top = 66.28
+offset_right = 301.667
+offset_bottom = 94.2803
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("9_6c6vf")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Encumbrance
+"
+
+[node name="Alignment" type="Label" parent="."]
+layout_mode = 0
+offset_left = 203.333
+offset_top = 83.673
+offset_right = 292.333
+offset_bottom = 111.673
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("9_6c6vf")
+theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Alignment
+"
+
+[node name="NinePatchReH+ct2" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 57.333
+offset_top = 49.59
+offset_right = 5390.33
+offset_bottom = 561.59
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_beb41")
+patch_margin_left = 256
+patch_margin_top = 256
+patch_margin_right = 256
+patch_margin_bottom = 256
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 57.333
+offset_top = 67.585
+offset_right = 5403.33
+offset_bottom = 579.585
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_beb41")
+patch_margin_left = 256
+patch_margin_top = 256
+patch_margin_right = 256
+patch_margin_bottom = 256
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 57.333
+offset_top = 86.24
+offset_right = 5403.33
+offset_bottom = 598.24
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_beb41")
+patch_margin_left = 256
+patch_margin_top = 256
+patch_margin_right = 256
+patch_margin_bottom = 256
+
+[node name="NinePatchRect5" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 250.5
+offset_top = 49.855
+offset_right = 5596.5
+offset_bottom = 561.855
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_beb41")
+patch_margin_left = 256
+patch_margin_top = 256
+patch_margin_right = 256
+patch_margin_bottom = 256
+
+[node name="NinePatchRect6" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 250.5
+offset_top = 68.035
+offset_right = 5596.5
+offset_bottom = 580.035
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_beb41")
+patch_margin_left = 256
+patch_margin_top = 256
+patch_margin_right = 256
+patch_margin_bottom = 256
+
+[node name="NinePatchRect7" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 250.5
+offset_top = 86.15
+offset_right = 5596.5
+offset_bottom = 598.15
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_beb41")
+patch_margin_left = 256
+patch_margin_top = 256
+patch_margin_right = 256
+patch_margin_bottom = 256
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+offset_left = 59.68
+offset_top = -8.325
+offset_right = 746.68
+offset_bottom = 319.675
+scale = Vector2(0.5, 0.5)
+theme_override_constants/h_separation = 132
+theme_override_constants/v_separation = -220
+columns = 2
+
+[node name="Health Bar" type="TextureProgressBar" parent="GridContainer"]
+layout_mode = 2
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("2_c73eo")
+texture_over = ExtResource("5_877a2")
+
+[node name="Experience Bar" type="TextureProgressBar" parent="GridContainer"]
+layout_mode = 2
+fill_mode = 4
+texture_under = ExtResource("2_c73eo")
+texture_over = ExtResource("6_vev0y")
+
+[node name="Mana Bar" type="TextureProgressBar" parent="GridContainer"]
+layout_mode = 2
+fill_mode = 4
+texture_over = ExtResource("5_wij5o")
+
+[node name="Encumbrance Bar" type="TextureProgressBar" parent="GridContainer"]
+layout_mode = 2
+fill_mode = 4
+texture_under = ExtResource("2_c73eo")
+texture_over = ExtResource("6_ygd67")
+
+[node name="Food Bar" type="TextureProgressBar" parent="GridContainer"]
+layout_mode = 2
+fill_mode = 4
+texture_under = ExtResource("2_c73eo")
+texture_over = ExtResource("9_kg1l6")
+
+[node name="Alignment Bar" type="TextureProgressBar" parent="GridContainer"]
+layout_mode = 2
+fill_mode = 4
+texture_under = ExtResource("2_c73eo")
+texture_over = ExtResource("8_no6n2")
+
+[node name="Alignment Selector" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 280.195
+offset_top = 87.125
+offset_right = 290.195
+offset_bottom = 97.125
+texture = ExtResource("11_gsd71")
+expand_mode = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 48.33
+offset_right = 203.0
+offset_bottom = 79.33
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("9_6c6vf")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "2150 / 2150"
+flat = true
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 65.535
+offset_right = 205.0
+offset_bottom = 96.535
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("9_6c6vf")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "874 / 935"
+flat = true
+
+[node name="LineEdit3" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 84.36
+offset_right = 207.0
+offset_bottom = 115.36
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("9_6c6vf")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "19 / 100"
+flat = true
+
+[node name="LineEdit4" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 48.455
+offset_right = 397.0
+offset_bottom = 79.455
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("9_6c6vf")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "19842 / 42000"
+flat = true
+
+[node name="LineEdit5" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 66.29
+offset_right = 391.0
+offset_bottom = 97.29
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("9_6c6vf")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "250 / 250"
+flat = true
+
+[node name="NinePatchRect9" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 242.667
+offset_top = 18.0
+offset_right = 5795.67
+offset_bottom = 1191.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("1_ntid7")
+patch_margin_left = 256
+patch_margin_top = 256
+patch_margin_right = 256
+patch_margin_bottom = 256
+
+[node name="NinePatchRect8" type="NinePatchRect" parent="NinePatchRect9"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 93.0
+offset_right = 2921.0
+offset_bottom = 605.0
+scale = Vector2(1.905, 1.905)
+texture = ExtResource("12_m3oj0")
+patch_margin_left = 128
+patch_margin_top = 256
+patch_margin_right = 128
+patch_margin_bottom = 256

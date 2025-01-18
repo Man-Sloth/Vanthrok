@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://du141in4867y4"]
+[gd_scene load_steps=12 format=3 uid="uid://du141in4867y4"]
 
 [ext_resource type="TileSet" uid="uid://cayafb86sxmm7" path="res://Assets/sprites/Vanthrok/_TileSets/Tile Sets.tres" id="1_nyllr"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uvyqx"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d0qcnn1ns267x" path="res://Scenes/Controls.tscn" id="7_i8ybn"]
 [ext_resource type="PackedScene" uid="uid://7w1ur7aqqvti" path="res://Scenes/object.tscn" id="7_vy5p8"]
 [ext_resource type="PackedScene" uid="uid://dv7vk3ew136ws" path="res://Scenes/CharacterWin.tscn" id="8_2ciys"]
+[ext_resource type="Texture2D" uid="uid://c45pbfiofnkjd" path="res://Assets/sprites/UI/General UI/ScreenBorder2.png" id="8_3m2xg"]
+[ext_resource type="PackedScene" uid="uid://3puy7oumhn3g" path="res://Scenes/status_bars.tscn" id="8_xcea3"]
 
 [sub_resource type="TileSet" id="TileSet_wn4lu"]
 tile_shape = 1
@@ -48,18 +50,18 @@ transform = Transform2D(1, 0, 0, 1, 82.21, 141.675)
 [node name="Backpack" parent="CanvasLayer" instance=ExtResource("5_f7xvq")]
 unique_name_in_owner = true
 visible = false
-offset_left = -98.21
-offset_top = -158.675
-offset_right = -98.21
-offset_bottom = -158.675
+offset_left = -125.21
+offset_top = -352.675
+offset_right = -125.21
+offset_bottom = -352.675
 
 [node name="CharacterWindow" parent="CanvasLayer" instance=ExtResource("8_2ciys")]
 unique_name_in_owner = true
 visible = false
-offset_left = -107.21
-offset_top = -289.675
-offset_right = -107.21
-offset_bottom = -289.675
+offset_left = -1455.21
+offset_top = -541.675
+offset_right = -1455.21
+offset_bottom = -541.675
 
 [node name="Controls" parent="CanvasLayer" instance=ExtResource("7_i8ybn")]
 unique_name_in_owner = true
@@ -97,6 +99,24 @@ grow_vertical = 0
 text = "Controls - F1"
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="Screen Border" type="NinePatchRect" parent="CanvasLayer"]
+offset_left = -82.0
+offset_top = -141.0
+offset_right = 9517.0
+offset_bottom = 5256.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_3m2xg")
+patch_margin_left = 256
+patch_margin_top = 256
+patch_margin_right = 256
+patch_margin_bottom = 256
+
+[node name="Status Bars" parent="CanvasLayer" instance=ExtResource("8_xcea3")]
+offset_left = 1234.79
+offset_top = 764.325
+offset_right = -685.21
+offset_bottom = -315.675
 
 [node name="Coin" parent="." instance=ExtResource("7_vy5p8")]
 z_index = 1
@@ -138,4 +158,6 @@ visible = false
 tile_set = SubResource("TileSet_wn4lu")
 format = 2
 
+[connection signal="body_entered" from="TileMap/Door" to="TileMap/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMap/Door" to="TileMap/Door" method="_on_body_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Backpack" to="GameManager" method="_on_backpack_mouse_entered"]

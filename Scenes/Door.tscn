@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_87ua7"]
 [ext_resource type="Texture2D" uid="uid://h3yxw1p10cdj" path="res://Assets/sprites/Atlases/Walls/Walls.png" id="2_23i3r"]
-[ext_resource type="AudioStream" uid="uid://byrnf3no3r6eo" path="res://Assets/sounds/open_door.wav" id="3_afqu6"]
-[ext_resource type="AudioStream" uid="uid://m5fy8bkf8kpy" path="res://Assets/sounds/explosion.wav" id="4_fofr3"]
+[ext_resource type="AudioStream" uid="uid://5dfauhdupy34" path="res://Assets/sounds/Door Open.wav" id="3_5rvts"]
+[ext_resource type="AudioStream" uid="uid://ddpsvw2s664ch" path="res://Assets/sounds/Door Close.wav" id="4_p6rhu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i2f2q"]
 atlas = ExtResource("2_23i3r")
@@ -32,11 +32,11 @@ frame_progress = 0.492716
 offset = Vector2(-131.04, -255.03)
 
 [node name="DoorSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_afqu6")
+stream = ExtResource("3_5rvts")
 bus = &"SFX"
 
 [node name="DoorSound2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_fofr3")
+stream = ExtResource("4_p6rhu")
 bus = &"SFX"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
