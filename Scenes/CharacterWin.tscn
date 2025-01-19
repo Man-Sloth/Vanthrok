@@ -295,9 +295,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.988
 anchor_bottom = 1.0
-offset_left = -1869.23
+offset_left = -1716.76
 offset_top = -15.385
-offset_right = -5199.67
+offset_right = -5047.2
 offset_bottom = -3467.38
 scale = Vector2(28, 28)
 
