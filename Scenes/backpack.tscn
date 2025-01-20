@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ba7trey8luw8y"]
+[gd_scene load_steps=16 format=3 uid="uid://ba7trey8luw8y"]
 
 [ext_resource type="Script" path="res://Scripts/backpack.gd" id="1_rtsw1"]
 [ext_resource type="Texture2D" uid="uid://djfun3oemvimr" path="res://Assets/sprites/UI/General UI/Background.png" id="2_pr3sv"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b0ua4bnd2wibm" path="res://Assets/sprites/UI/Resize_Button.png" id="5_maotn"]
 [ext_resource type="Texture2D" uid="uid://d18q81hcio2dn" path="res://Assets/sprites/UI/General UI/LightBackground.png" id="7_7oxmq"]
 [ext_resource type="Texture2D" uid="uid://c1q58nbejmn70" path="res://Assets/sprites/UI/xbutton2.png" id="7_ik5uk"]
+[ext_resource type="Texture2D" uid="uid://ccxe8bwuybajm" path="res://Assets/sprites/UI/Scroll Arrow/Scroll Arrow Down.png" id="8_mhc7f"]
+[ext_resource type="Texture2D" uid="uid://cyumj3e1o2eu8" path="res://Assets/sprites/UI/Scroll Arrow/Scroll Arrow Up.png" id="9_pcin5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok5o0"]
 
@@ -619,6 +621,33 @@ offset_right = -76.0
 offset_bottom = -372.0
 texture = SubResource("CompressedTexture2D_h8o4m")
 expand_mode = 1
+
+[node name="Scrol Down" type="Button" parent="."]
+layout_mode = 0
+offset_left = -10.7692
+offset_top = -30.7692
+offset_right = 509.231
+offset_bottom = 1001.23
+scale = Vector2(0.05, 0.05)
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+icon = ExtResource("8_mhc7f")
+expand_icon = true
+
+[node name="Scroll Up" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -10.769
+offset_top = -337.275
+offset_right = 509.231
+offset_bottom = 694.725
+scale = Vector2(0.05, 0.05)
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+icon = ExtResource("9_pcin5")
+expand_icon = true
 
 [connection signal="mouse_entered" from="NinePatchRect2/MarginContainer/InventorySlots/1" to="NinePatchRect2/MarginContainer/InventorySlots/1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="NinePatchRect2/MarginContainer/InventorySlots/1" to="NinePatchRect2/MarginContainer/InventorySlots/1" method="_on_mouse_exited"]
