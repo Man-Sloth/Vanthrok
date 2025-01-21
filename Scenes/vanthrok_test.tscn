@@ -157,6 +157,4 @@ visible = false
 tile_set = SubResource("TileSet_wn4lu")
 format = 2
 
-[connection signal="body_entered" from="TileMap/Door" to="TileMap/Door" method="_on_body_entered"]
-[connection signal="body_exited" from="TileMap/Door" to="TileMap/Door" method="_on_body_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Backpack" to="GameManager" method="_on_backpack_mouse_entered"]
