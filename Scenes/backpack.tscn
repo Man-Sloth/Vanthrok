@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ba7trey8luw8y"]
+[gd_scene load_steps=16 format=3 uid="uid://ba7trey8luw8y"]
 
 [ext_resource type="Script" path="res://Scripts/backpack.gd" id="1_rtsw1"]
 [ext_resource type="Texture2D" uid="uid://djfun3oemvimr" path="res://Assets/sprites/UI/General UI/Background.png" id="2_pr3sv"]
@@ -11,14 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://d18q81hcio2dn" path="res://Assets/sprites/UI/General UI/LightBackground.png" id="7_7oxmq"]
 [ext_resource type="Texture2D" uid="uid://c1q58nbejmn70" path="res://Assets/sprites/UI/xbutton2.png" id="7_ik5uk"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vb7w"]
-texture = ExtResource("6_6862t")
-expand_margin_left = 16.0
-expand_margin_right = 16.0
-
-[sub_resource type="Theme" id="Theme_ma1es"]
-VScrollBar/styles/grabber = SubResource("StyleBoxTexture_4vb7w")
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok5o0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_disle"]
@@ -28,8 +20,6 @@ VScrollBar/styles/grabber = SubResource("StyleBoxTexture_4vb7w")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2klv4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yfb0b"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h8o4m"]
 
 [node name="Backpack" type="Panel"]
 anchors_preset = 3
@@ -53,6 +43,7 @@ offset_top = -414.0
 offset_right = 3656.0
 offset_bottom = 3682.0
 scale = Vector2(0.115, 0.115)
+mouse_filter = 0
 texture = ExtResource("2_pr3sv")
 patch_margin_left = 256
 patch_margin_top = 256
@@ -958,10 +949,10 @@ offset_top = -341.538
 offset_right = 45.5385
 offset_bottom = -213.538
 scale = Vector2(0.5, 0.5)
-theme = SubResource("Theme_ma1es")
+focus_mode = 0
 icon = ExtResource("6_6862t")
 flat = true
-icon_alignment = 1
+icon_alignment = 2
 expand_icon = true
 
 [node name="Scroll Down" type="Button" parent="."]
@@ -971,6 +962,7 @@ offset_top = -49.468
 offset_right = 46.0
 offset_bottom = 78.532
 scale = Vector2(0.5, 0.5)
+focus_mode = 0
 icon = ExtResource("3_f46bi")
 flat = true
 icon_alignment = 1
@@ -1024,8 +1016,8 @@ vertical_icon_alignment = 0
 layout_mode = 2
 offset_left = -302.0
 offset_top = -438.0
-offset_right = 1746.0
-offset_bottom = 1610.01
+offset_right = 1718.0
+offset_bottom = 1944.0
 scale = Vector2(0.1, 0.025)
 theme_override_styles/hover = SubResource("StyleBoxEmpty_d2ri7")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_2klv4")
@@ -1059,16 +1051,8 @@ text = "Backpack"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = -332.0
-offset_top = -442.0
-offset_right = -76.0
-offset_bottom = -372.0
-texture = SubResource("CompressedTexture2D_h8o4m")
-expand_mode = 1
-
+[connection signal="mouse_entered" from="NinePatchRect2" to="." method="_on_nine_patch_rect_2_mouse_entered"]
+[connection signal="mouse_exited" from="NinePatchRect2" to="." method="_on_nine_patch_rect_2_mouse_exited"]
 [connection signal="scroll_started" from="NinePatchRect2/ScrollContainer" to="Scroll Up" method="_on_scroll_container_scroll_started"]
 [connection signal="mouse_entered" from="NinePatchRect2/ScrollContainer/InventorySlots/1" to="NinePatchRect2/ScrollContainer/InventorySlots/1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="NinePatchRect2/ScrollContainer/InventorySlots/1" to="NinePatchRect2/ScrollContainer/InventorySlots/1" method="_on_mouse_exited"]
@@ -1153,9 +1137,14 @@ expand_mode = 1
 [connection signal="button_down" from="Scroll Up" to="NinePatchRect2/ScrollContainer" method="_on_scroll_up_button_down"]
 [connection signal="button_up" from="Scroll Up" to="NinePatchRect2/ScrollContainer" method="_on_scroll_up_button_up"]
 [connection signal="hidden" from="Scroll Up" to="NinePatchRect2/ScrollContainer" method="_on_scroll_up_hidden"]
+[connection signal="item_rect_changed" from="Scroll Up" to="NinePatchRect2/ScrollContainer" method="_on_scroll_up_item_rect_changed"]
+[connection signal="mouse_entered" from="Scroll Up" to="NinePatchRect2/ScrollContainer" method="_on_scroll_up_mouse_entered"]
+[connection signal="mouse_exited" from="Scroll Up" to="NinePatchRect2/ScrollContainer" method="_on_scroll_up_mouse_exited"]
 [connection signal="pressed" from="Scroll Up" to="NinePatchRect2/ScrollContainer" method="_on_scroll_up_pressed"]
 [connection signal="button_down" from="Scroll Down" to="NinePatchRect2/ScrollContainer" method="_on_scroll_down_button_down"]
 [connection signal="button_up" from="Scroll Down" to="NinePatchRect2/ScrollContainer" method="_on_scroll_down_button_up"]
+[connection signal="mouse_entered" from="Scroll Down" to="NinePatchRect2/ScrollContainer" method="_on_scroll_down_mouse_entered"]
+[connection signal="mouse_exited" from="Scroll Down" to="NinePatchRect2/ScrollContainer" method="_on_scroll_down_mouse_exited"]
 [connection signal="pressed" from="Scroll Down" to="NinePatchRect2/ScrollContainer" method="_on_scroll_down_pressed"]
 [connection signal="mouse_entered" from="Exit Bag" to="." method="_on_exit_bag_mouse_entered"]
 [connection signal="mouse_exited" from="Exit Bag" to="." method="_on_exit_bag_mouse_exited"]
@@ -1166,7 +1155,8 @@ expand_mode = 1
 [connection signal="mouse_exited" from="Resize Bag" to="." method="_on_resize_bag_mouse_exited"]
 [connection signal="pressed" from="Resize Bag" to="." method="_on_resize_bag_pressed"]
 [connection signal="button_down" from="Title Plate" to="." method="_on_title_plate_button_down"]
-[connection signal="button_down" from="Title Plate" to="." method="_on_top_plate_button_button_down"]
 [connection signal="button_up" from="Title Plate" to="." method="_on_title_plate_button_up"]
+[connection signal="gui_input" from="Title Plate" to="." method="_on_title_plate_gui_input"]
 [connection signal="mouse_entered" from="Title Plate" to="." method="_on_title_plate_mouse_entered"]
 [connection signal="mouse_exited" from="Title Plate" to="." method="_on_title_plate_mouse_exited"]
+[connection signal="pressed" from="Title Plate" to="." method="_on_title_plate_pressed"]

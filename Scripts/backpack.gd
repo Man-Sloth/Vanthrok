@@ -5,9 +5,12 @@ extends Panel
 @onready var exit_bag = $"Exit Bag"
 @onready var title_plate = $"Title Plate"
 @onready var resize_bag = $"Resize Bag"
-@onready var panel_container = $"PanelContainer"
+#@onready var panel_container = $NinePatchRect2
 @onready var game_manager = %GameManager
 @onready var player = $"../../RPG_Player"
+@onready var scroll_container = $NinePatchRect2/ScrollContainer
+@onready var nine_patch_rect_2 = $NinePatchRect2
+
 
 
 var resizing = false
@@ -17,6 +20,8 @@ var backpack_start = Vector2(0,0)
 var hovering = false
 var inventory_hover = false
 const OBJECTSCENE = preload("res://Scenes/object.tscn")
+var mouse_regular = preload("res://Assets/sprites/UI/Mouse Cursor/MouseCursor.png")
+var mouse_clicked = preload("res://Assets/sprites/UI/Mouse Cursor/MouseCursor2.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -111,6 +116,7 @@ func is_hovering():
 
 func _on_exit_bag_pressed():
 	toggle_menu()
+	
 
 func _on_resize_bag_button_down():
 	resizing = true
@@ -122,17 +128,20 @@ func _on_title_plate_button_down():
 	moving = true
 	moving_start = get_global_mouse_position()
 	backpack_start = backpack.position
+	Input.set_custom_mouse_cursor(mouse_clicked)
+	print("Title plate down")
 	
 func _on_title_plate_button_up():
 	moving = false
+	Input.set_custom_mouse_cursor(mouse_regular)
 
-func _on_panel_container_mouse_entered():
-	hovering = true
-	game_manager.set_hovering_window(true)
+#func _on_panel_container_mouse_entered():
+	#hovering = true
+	#game_manager.set_hovering_window(true)
 	
-func _on_panel_container_mouse_exited():
-	hovering = false
-	game_manager.set_hovering_window(false)
+#func _on_panel_container_mouse_exited():
+	#hovering = false
+	#game_manager.set_hovering_window(false)
 
 func _on_title_plate_mouse_entered():
 	hovering = true
@@ -158,9 +167,18 @@ func _on_resize_bag_mouse_exited():
 	hovering = false
 	game_manager.set_hovering_window(false)
 
-func _on_inventory_region_mouse_entered():
+func _on_scroll_container_mouse_entered():
 	inventory_hover = true
 
 
-func _on_inventory_region_mouse_exited():
+func _on_scroll_container_mouse_exited():
 	inventory_hover = false
+
+
+func _on_nine_patch_rect_2_mouse_entered():
+	hovering = true
+	game_manager.set_hovering_window(true)
+
+func _on_nine_patch_rect_2_mouse_exited():
+	hovering = false
+	game_manager.set_hovering_window(false)
