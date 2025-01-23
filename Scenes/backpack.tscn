@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://djfun3oemvimr" path="res://Assets/sprites/UI/General UI/Background.png" id="2_pr3sv"]
 [ext_resource type="Texture2D" uid="uid://ccxe8bwuybajm" path="res://Assets/sprites/UI/Scroll Arrow/Scroll Arrow Down.png" id="3_f46bi"]
 [ext_resource type="Script" path="res://Scripts/inventory_slot.gd" id="4_30ur6"]
-[ext_resource type="Script" path="res://Scenes/ScrollContainer.gd" id="4_ss1k1"]
+[ext_resource type="Script" path="res://Scripts/ScrollContainer.gd" id="4_ss1k1"]
 [ext_resource type="Theme" uid="uid://c58omhf8eve5i" path="res://UI_Theme.tres" id="5_lgjj7"]
+[ext_resource type="Texture2D" uid="uid://1h7eno7gyr6i" path="res://Assets/sprites/UI/General UI/LightBackground2.png" id="5_vae4b"]
 [ext_resource type="Texture2D" uid="uid://cyumj3e1o2eu8" path="res://Assets/sprites/UI/Scroll Arrow/Scroll Arrow Up.png" id="6_6862t"]
-[ext_resource type="Texture2D" uid="uid://d18q81hcio2dn" path="res://Assets/sprites/UI/General UI/LightBackground.png" id="7_7oxmq"]
-[ext_resource type="Texture2D" uid="uid://c1q58nbejmn70" path="res://Assets/sprites/UI/xbutton2.png" id="7_ik5uk"]
+[ext_resource type="Texture2D" uid="uid://ch7xocwcacsdw" path="res://Assets/sprites/UI/xbutton3.png" id="9_u3bjv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok5o0"]
 
@@ -34,6 +34,7 @@ scale = Vector2(0.65, 0.65)
 script = ExtResource("1_rtsw1")
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
+self_modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 0
 offset_left = -440.0
 offset_top = -414.0
@@ -76,7 +77,7 @@ columns = 5
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 Item_Type = 8
@@ -99,7 +100,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -121,7 +122,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -143,7 +144,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -166,7 +167,7 @@ custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -188,7 +189,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -208,7 +209,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -228,7 +229,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -250,7 +251,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -271,7 +272,7 @@ custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -291,7 +292,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -313,7 +314,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -333,7 +334,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -355,7 +356,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -378,7 +379,7 @@ custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -400,7 +401,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -422,7 +423,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -444,7 +445,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -466,7 +467,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -489,7 +490,7 @@ custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 1
 script = ExtResource("4_30ur6")
 
@@ -510,7 +511,7 @@ custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -533,7 +534,7 @@ custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -555,7 +556,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -577,7 +578,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -601,7 +602,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -625,7 +626,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -649,7 +650,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -673,7 +674,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -697,7 +698,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -721,7 +722,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -745,7 +746,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -769,7 +770,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -793,7 +794,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -817,7 +818,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -841,7 +842,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -865,7 +866,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -889,7 +890,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -913,7 +914,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -937,7 +938,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -961,7 +962,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("7_7oxmq")
+texture = ExtResource("5_vae4b")
 expand_mode = 2
 script = ExtResource("4_30ur6")
 
@@ -1006,16 +1007,17 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Exit Bag" type="Button" parent="."]
+modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 2
-offset_left = -22.0
-offset_top = -404.0
-offset_right = 598.0
-offset_bottom = 216.0
-scale = Vector2(0.07, 0.07)
+offset_left = -10.7692
+offset_top = -398.462
+offset_right = 2045.23
+offset_bottom = 1657.54
+scale = Vector2(0.013, 0.013)
 mouse_filter = 1
 theme_override_colors/icon_pressed_color = Color(0.881937, 0.881937, 0.881937, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ok5o0")
-icon = ExtResource("7_ik5uk")
+icon = ExtResource("9_u3bjv")
 flat = true
 icon_alignment = 2
 vertical_icon_alignment = 0
@@ -1032,6 +1034,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_2klv4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yfb0b")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 0
 offset_left = -302.0
 offset_top = -438.0

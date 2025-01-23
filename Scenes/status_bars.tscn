@@ -11,7 +11,7 @@
 [ext_resource type="Theme" uid="uid://c58omhf8eve5i" path="res://UI_Theme.tres" id="9_6c6vf"]
 [ext_resource type="Texture2D" uid="uid://0y1ligqals80" path="res://Assets/sprites/UI/Food Bar/0081.png" id="9_kg1l6"]
 [ext_resource type="Texture2D" uid="uid://0fyqb1i8r87u" path="res://Assets/sprites/UI/AlignmentSelector.png" id="11_gsd71"]
-[ext_resource type="Texture2D" uid="uid://bgcg5vqgi5xef" path="res://Assets/sprites/UI/DayNight360/0001.png" id="12_m3oj0"]
+[ext_resource type="Texture2D" uid="uid://debnhcre3ufly" path="res://Assets/sprites/UI/DayNight360/0258.png" id="12_k1186"]
 
 [node name="Status Bars" type="Panel"]
 anchors_preset = 15
@@ -22,9 +22,10 @@ offset_right = -1920.0
 offset_bottom = -1084.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.8, 1.8)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+self_modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 0
 offset_right = 3496.0
 offset_bottom = 1013.91
@@ -338,7 +339,7 @@ offset_top = 93.0
 offset_right = 2921.0
 offset_bottom = 605.0
 scale = Vector2(1.905, 1.905)
-texture = ExtResource("12_m3oj0")
+texture = ExtResource("12_k1186")
 patch_margin_left = 128
 patch_margin_top = 256
 patch_margin_right = 128
