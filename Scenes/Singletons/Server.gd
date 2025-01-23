@@ -22,6 +22,10 @@ func _on_connected_ok():
 	#player_connected.emit(peer_id, player_info)
 	
 func _on_connected_fail():
+	print("Failed to connect")
 	#players.erase(id)
 	#player_disconnected.emit(id)
-	print("Failed to connect")
+
+@rpc("any_peer", "reliable")
+func _register_player(new_player_info):
+	pass
