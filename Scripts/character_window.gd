@@ -23,8 +23,6 @@ extends Panel
 @onready var shield_sprite = $"../../RPG_Player/Shield Sprite"
 
 
-
-var resizing = false
 var moving = false
 var moving_start = Vector2(0,0)
 var character_window_start = Vector2(0,0)
@@ -47,7 +45,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	window_resize()
+	#window_resize()
 	window_move()
 	
 func _input(event):
@@ -141,20 +139,20 @@ func toggle_menu():
 	else:
 		self.visible = true
 
-func window_resize():
-	var speed = get_viewport_rect().size.x * 0.00001
-	var resizeDiff = abs(resize_window.position.x - get_local_mouse_position().x)
-	if resizing:
-		if resizeDiff > 20:
-			if resize_window.position.x + (resize_window.size.x/3) > (get_local_mouse_position().x + 0.1):
-				character_window.scale.x += (speed)
-				character_window.scale.y += (speed)
-			elif resize_window.position.x + (resize_window.size.x/3) < (get_local_mouse_position().x -0.1):
-				character_window.scale.x -= (speed)
-				character_window.scale.y -= (speed)
-				if character_window.scale.x < 0.5:
-					character_window.scale.x = 0.5
-					character_window.scale.y = 0.5
+#func window_resize():
+	#var speed = get_viewport_rect().size.x * 0.00001
+	#var resizeDiff = abs(resize_window.position.x - get_local_mouse_position().x)
+	#if resizing:
+		#if resizeDiff > 20:
+			#if resize_window.position.x + (resize_window.size.x/3) > (get_local_mouse_position().x + 0.1):
+				#character_window.scale.x += (speed)
+				#character_window.scale.y += (speed)
+			#elif resize_window.position.x + (resize_window.size.x/3) < (get_local_mouse_position().x -0.1):
+				#character_window.scale.x -= (speed)
+				#character_window.scale.y -= (speed)
+				#if character_window.scale.x < 0.5:
+					#character_window.scale.x = 0.5
+					#character_window.scale.y = 0.5
 
 func window_move():
 	if moving:
@@ -198,25 +196,11 @@ func _on_inventory_region_mouse_exited():
 func _on_exit_window_pressed():
 	toggle_menu()
 
-func _on_resize_window_button_down():
-	resizing = true
-
-func _on_resize_window_button_up():
-	resizing = false
-
 func _on_exit_window_mouse_entered():
 	hovering = true
 	game_manager.set_hovering_window(true)
 
 func _on_exit_window_mouse_exited():
-	hovering = false
-	game_manager.set_hovering_window(false)
-
-func _on_resize_window_mouse_entered():
-	hovering = true
-	game_manager.set_hovering_window(true)
-	
-func _on_resize_window_mouse_exited():
 	hovering = false
 	game_manager.set_hovering_window(false)
 

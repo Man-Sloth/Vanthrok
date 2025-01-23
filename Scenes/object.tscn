@@ -262,7 +262,7 @@ material = ExtResource("2_oibwy")
 position = Vector2(-0.5, 3)
 scale = Vector2(0.495, 0.495)
 sprite_frames = SubResource("SpriteFrames_r8321")
-animation = &"cloth_arms"
+animation = &"level1_sword"
 autoplay = "cloth_helm"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

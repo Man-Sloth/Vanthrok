@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ba7trey8luw8y"]
+[gd_scene load_steps=14 format=3 uid="uid://ba7trey8luw8y"]
 
 [ext_resource type="Script" path="res://Scripts/backpack.gd" id="1_rtsw1"]
 [ext_resource type="Texture2D" uid="uid://djfun3oemvimr" path="res://Assets/sprites/UI/General UI/Background.png" id="2_pr3sv"]
@@ -6,14 +6,11 @@
 [ext_resource type="Script" path="res://Scripts/inventory_slot.gd" id="4_30ur6"]
 [ext_resource type="Script" path="res://Scenes/ScrollContainer.gd" id="4_ss1k1"]
 [ext_resource type="Theme" uid="uid://c58omhf8eve5i" path="res://UI_Theme.tres" id="5_lgjj7"]
-[ext_resource type="Texture2D" uid="uid://b0ua4bnd2wibm" path="res://Assets/sprites/UI/Resize_Button.png" id="5_maotn"]
 [ext_resource type="Texture2D" uid="uid://cyumj3e1o2eu8" path="res://Assets/sprites/UI/Scroll Arrow/Scroll Arrow Up.png" id="6_6862t"]
 [ext_resource type="Texture2D" uid="uid://d18q81hcio2dn" path="res://Assets/sprites/UI/General UI/LightBackground.png" id="7_7oxmq"]
 [ext_resource type="Texture2D" uid="uid://c1q58nbejmn70" path="res://Assets/sprites/UI/xbutton2.png" id="7_ik5uk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok5o0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_disle"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2ri7"]
 
@@ -1023,22 +1020,6 @@ flat = true
 icon_alignment = 2
 vertical_icon_alignment = 0
 
-[node name="Resize Bag" type="Button" parent="."]
-visible = false
-layout_mode = 2
-offset_left = -393.0
-offset_top = -408.0
-offset_right = -337.0
-offset_bottom = -352.0
-scale = Vector2(0.72, 0.72)
-mouse_filter = 1
-theme_override_styles/focus = SubResource("StyleBoxEmpty_disle")
-action_mode = 0
-icon = ExtResource("5_maotn")
-flat = true
-icon_alignment = 2
-vertical_icon_alignment = 0
-
 [node name="Title Plate" type="Button" parent="."]
 layout_mode = 2
 offset_left = -302.0
@@ -1180,11 +1161,6 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="Exit Bag" to="." method="_on_exit_bag_mouse_entered"]
 [connection signal="mouse_exited" from="Exit Bag" to="." method="_on_exit_bag_mouse_exited"]
 [connection signal="pressed" from="Exit Bag" to="." method="_on_exit_bag_pressed"]
-[connection signal="button_down" from="Resize Bag" to="." method="_on_resize_bag_button_down"]
-[connection signal="button_up" from="Resize Bag" to="." method="_on_resize_bag_button_up"]
-[connection signal="mouse_entered" from="Resize Bag" to="." method="_on_resize_bag_mouse_entered"]
-[connection signal="mouse_exited" from="Resize Bag" to="." method="_on_resize_bag_mouse_exited"]
-[connection signal="pressed" from="Resize Bag" to="." method="_on_resize_bag_pressed"]
 [connection signal="button_down" from="Title Plate" to="." method="_on_title_plate_button_down"]
 [connection signal="button_up" from="Title Plate" to="." method="_on_title_plate_button_up"]
 [connection signal="gui_input" from="Title Plate" to="." method="_on_title_plate_gui_input"]
