@@ -20,8 +20,6 @@ var backpack_start = Vector2(0,0)
 var hovering = false
 var inventory_hover = false
 const OBJECTSCENE = preload("res://Scenes/object.tscn")
-var mouse_regular = preload("res://Assets/sprites/UI/Mouse Cursor/MouseCursor.png")
-var mouse_clicked = preload("res://Assets/sprites/UI/Mouse Cursor/MouseCursor2.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -114,26 +112,34 @@ func bag_move():
 func is_hovering():
 	return hovering
 
+
+
 func _on_exit_bag_pressed():
 	toggle_menu()
 	
+func _on_exit_bag_button_down():
+	game_manager.set_button_pressed(true)
 
+func _on_exit_bag_button_up():
+	game_manager.set_button_pressed(false)
+	
 func _on_resize_bag_button_down():
 	resizing = true
 
 func _on_resize_bag_button_up():
 	resizing = false
 
+	
 func _on_title_plate_button_down():
 	moving = true
 	moving_start = get_global_mouse_position()
 	backpack_start = backpack.position
-	Input.set_custom_mouse_cursor(mouse_clicked)
+	game_manager.set_button_pressed(true)
 	print("Title plate down")
 	
 func _on_title_plate_button_up():
 	moving = false
-	Input.set_custom_mouse_cursor(mouse_regular)
+	game_manager.set_button_pressed(false)
 
 #func _on_panel_container_mouse_entered():
 	#hovering = true
@@ -182,3 +188,7 @@ func _on_nine_patch_rect_2_mouse_entered():
 func _on_nine_patch_rect_2_mouse_exited():
 	hovering = false
 	game_manager.set_hovering_window(false)
+
+
+
+

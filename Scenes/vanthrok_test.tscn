@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://7w1ur7aqqvti" path="res://Scenes/object.tscn" id="7_vy5p8"]
 [ext_resource type="PackedScene" uid="uid://dv7vk3ew136ws" path="res://Scenes/CharacterWin.tscn" id="8_2ciys"]
 [ext_resource type="Texture2D" uid="uid://c45pbfiofnkjd" path="res://Assets/sprites/UI/General UI/ScreenBorder2.png" id="8_3m2xg"]
-[ext_resource type="PackedScene" uid="uid://3puy7oumhn3g" path="res://Scenes/status_bars.tscn" id="8_xcea3"]
+[ext_resource type="PackedScene" uid="uid://dais4jkaopuby" path="res://Scenes/status_bars.tscn" id="8_xcea3"]
 
 [sub_resource type="TileSet" id="TileSet_wn4lu"]
 tile_shape = 1
@@ -57,10 +57,10 @@ offset_bottom = -352.675
 [node name="CharacterWindow" parent="CanvasLayer" instance=ExtResource("8_2ciys")]
 unique_name_in_owner = true
 visible = false
-offset_left = -1455.21
-offset_top = -541.675
-offset_right = -1455.21
-offset_bottom = -541.675
+offset_left = -408.21
+offset_top = -315.675
+offset_right = -408.21
+offset_bottom = -315.675
 
 [node name="Controls" parent="CanvasLayer" instance=ExtResource("7_i8ybn")]
 unique_name_in_owner = true
@@ -157,4 +157,6 @@ visible = false
 tile_set = SubResource("TileSet_wn4lu")
 format = 2
 
+[connection signal="body_entered" from="TileMap/Door" to="TileMap/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMap/Door" to="TileMap/Door" method="_on_body_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Backpack" to="GameManager" method="_on_backpack_mouse_entered"]

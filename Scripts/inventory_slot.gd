@@ -17,8 +17,6 @@ var loaded_animation = AnimatedSprite2D.new()
 var dummy_image = Sprite2D.new()
 var load_thread = Thread.new()
 #var new_animation = load("res://Assets/sprites/SpriteFrames/Human_BLANK.tres")
-var mouse_clicked = preload("res://Assets/sprites/UI/Mouse Cursor/MouseCursor2.png")
-var mouse_regular = preload("res://Assets/sprites/UI/Mouse Cursor/MouseCursor.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

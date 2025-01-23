@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://3puy7oumhn3g"]
+[gd_scene load_steps=13 format=3 uid="uid://dais4jkaopuby"]
 
 [ext_resource type="Texture2D" uid="uid://djfun3oemvimr" path="res://Assets/sprites/UI/General UI/Background.png" id="1_ntid7"]
 [ext_resource type="Texture2D" uid="uid://buvfih5pw01rd" path="res://Assets/sprites/UI/Health Bar/0100.png" id="2_c73eo"]

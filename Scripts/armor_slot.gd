@@ -73,10 +73,12 @@ func _input(event):
 				add_child(slot_object)
 				player.set_frames(slot_object)
 				
+				# New way of loading dummy
 				if item_type == 1: #chest
 					chest.texture = slot_object.get_dummy().texture
 					chest.visible = true
 				
+				#old way
 				if armor_type == 0: #cloth
 					if item_type == 0: #head
 						head.texture = DUMMY_CLOTH_HAT

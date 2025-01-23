@@ -4,6 +4,7 @@ extends Node
 
 var score = 0
 var holding = false
+var holding_last_frame = false
 var last_texture = null
 var held_object = null
 var last_pulled_from = null #bag slot
@@ -11,10 +12,16 @@ var last_pulled_from_char = null #character window slot
 var hovering_slot = false
 var hovering_char_slot = false
 var hovering_window = false
+var button_pressed = false
+var mouse_regular = preload("res://Assets/sprites/UI/Mouse Cursor/MouseCursor.png")
+var mouse_clicked = preload("res://Assets/sprites/UI/Mouse Cursor/MouseCursor2.png")
 
 #@onready var score_label = %ScoreLabel
 
 func _process(_delta):
+	if holding_last_frame:
+		if !holding:
+			set_button_pressed(false)
 	if holding:
 		var animatedSprite2D = held_object.get_node("AnimatedSprite2D")
 		var frameIndex: int = animatedSprite2D.get_frame()
@@ -22,8 +29,15 @@ func _process(_delta):
 		var spriteFrames: SpriteFrames = animatedSprite2D.get_sprite_frames()
 		var currentTexture: Texture2D = spriteFrames.get_frame_texture(animationName, frameIndex)
 		set_texture(currentTexture)
+		holding_last_frame = true
+		set_button_pressed(true)
+	else:
+		holding_last_frame = false
+		
 
 func _input(event):
+		
+		
 	var holdOffset = Vector2(115,155)
 	
 	if event.is_action_pressed("pickup") && holding:
@@ -97,6 +111,11 @@ func set_hovering_window(hovering):
 func get_hovering_window():
 	return hovering_window
 	
-
+func set_button_pressed(is_pressed):
+	button_pressed = is_pressed
+	if button_pressed:
+			Input.set_custom_mouse_cursor(mouse_clicked)
+	elif !button_pressed:
+		Input.set_custom_mouse_cursor(mouse_regular)
 	
 

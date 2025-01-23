@@ -22,6 +22,8 @@ extends Panel
 @onready var shield = $Shield
 @onready var shield_sprite = $"../../RPG_Player/Shield Sprite"
 
+
+
 var resizing = false
 var moving = false
 var moving_start = Vector2(0,0)
@@ -40,6 +42,7 @@ const OBJECTSCENE = preload("res://Scenes/object.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(100)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -164,9 +167,11 @@ func _on_title_plate_button_down():
 	moving = true
 	moving_start = get_global_mouse_position()
 	character_window_start = character_window.position
+	game_manager.set_button_pressed(true)
 	
 func _on_title_plate_button_up():
 	moving = false
+	game_manager.set_button_pressed(false)
 
 func _on_panel_container_mouse_entered():
 	hovering = true
@@ -214,3 +219,10 @@ func _on_resize_window_mouse_entered():
 func _on_resize_window_mouse_exited():
 	hovering = false
 	game_manager.set_hovering_window(false)
+
+
+func _on_exit_window_button_down():
+	game_manager.set_button_pressed(true)
+
+func _on_exit_window_button_up():
+	game_manager.set_button_pressed(false)

@@ -20,6 +20,7 @@ config/windows_native_icon="res://Assets/sprites/DUDE_icon.ico"
 [autoload]
 
 Music="*res://Scenes/music.tscn"
+Server="*res://Scenes/Singletons/Server.tscn"
 
 [debug]
 
@@ -27,6 +28,8 @@ settings/stdout/print_fps=true
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/vsync/vsync_mode=0
 mouse_cursor/custom_image="res://Assets/sprites/UI/Mouse Cursor/MouseCursor.png"
 
