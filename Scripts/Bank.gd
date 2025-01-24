@@ -30,8 +30,6 @@ func _process(_delta):
 	bag_move()
 	
 func _input(event):
-	if event.is_action_pressed("bag_toggle"):
-		toggle_menu()
 		
 	if hovering && game_manager.get_held_object() != null: #Drop item back to previous slot
 		if event.is_action_released("pickup"):
