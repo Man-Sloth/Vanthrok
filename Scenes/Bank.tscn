@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Bank.gd" id="1_6ulus"]
 [ext_resource type="Texture2D" uid="uid://djfun3oemvimr" path="res://Assets/sprites/UI/General UI/Background.png" id="2_mv80t"]
 [ext_resource type="Theme" uid="uid://c58omhf8eve5i" path="res://UI_Theme.tres" id="3_svgk6"]
-[ext_resource type="Script" path="res://Scripts/BankScrollContainer.gd" id="4_luhbh"]
+[ext_resource type="Script" path="res://Scripts/ScrollContainer.gd" id="4_g5bn1"]
 [ext_resource type="Texture2D" uid="uid://1h7eno7gyr6i" path="res://Assets/sprites/UI/General UI/LightBackground2.png" id="5_54knu"]
 [ext_resource type="Script" path="res://Scripts/inventory_slot.gd" id="6_etrww"]
 [ext_resource type="Texture2D" uid="uid://cyumj3e1o2eu8" path="res://Assets/sprites/UI/Scroll Arrow/Scroll Arrow Up.png" id="7_okcl3"]
@@ -65,7 +65,7 @@ scale = Vector2(0.6, 0.6)
 theme = ExtResource("3_svgk6")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
-script = ExtResource("4_luhbh")
+script = ExtResource("4_g5bn1")
 
 [node name="InventorySlots" type="GridContainer" parent="NinePatchRect2/ScrollContainer"]
 layout_mode = 2
