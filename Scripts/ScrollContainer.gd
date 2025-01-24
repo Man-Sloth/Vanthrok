@@ -3,8 +3,11 @@ extends ScrollContainer
 @onready var scroll_down = $"../../Scroll Down"
 @onready var game_manager = $"../../../../GameManager"
 @onready var i_slots = $InventorySlots
+<<<<<<< Updated upstream:Scripts/ScrollContainer.gd
 
 
+=======
+>>>>>>> Stashed changes:Scenes/ScrollContainer.gd
 
 var top_being_pushed = false
 var bottom_being_pushed = false
@@ -80,8 +83,6 @@ func _process(delta):
 		bottom_being_pushed = false
 		scroll_down.pivot_offset = Vector2(0, 0)
 		scroll_down.scale = Vector2(scale_default, scale_default)
-		
-	#print (get_v_scroll())
 
 func _on_scroll_up_button_down():
 	#var current_scroll = self.get_v_scroll()

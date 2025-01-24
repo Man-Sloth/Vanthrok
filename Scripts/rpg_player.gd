@@ -13,7 +13,7 @@ var new_animation
 const MALE_NORMAL_MODE = preload("res://Assets/sprites/SpriteFrames/Male_Normal_Mode.tres")
 const MALE_ATTACK_MODE = preload("res://Assets/sprites/SpriteFrames/Male_Attack_Mode.tres")
 
-const SPEED = 70000.0
+var speed = 70000
 var idle = false
 var attack_mode = false
 var attack_released = true
@@ -42,7 +42,12 @@ var load_thread = Thread.new()
 
 var loaded_animations = []
 
+func _ready():
+	pass
+
 func _process(_delta):
+	#Server.FetchPlayerStats("Player Stats", get_instance_id())
+	
 	if shirt_type != last_shirt_type:
 		if load_shirt == false:
 			load_shirt = true
@@ -370,14 +375,14 @@ func _physics_process(delta):
 		
 	# Apply movement
 	if directionX:
-		velocity.x = directionX * SPEED * delta
+		velocity.x = directionX * speed * delta
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	if directionY:
-		velocity.y = directionY * SPEED * delta
+		velocity.y = directionY * speed * delta
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, speed)
 		
 	move_and_slide()
 
@@ -418,3 +423,6 @@ func remove_animation(asset_path):
 func clear_spriteframes():
 	chest_sprite.sprite_frames = null
 	shirt_type = -1
+
+func Set_Speed(player_speed):
+	speed = player_speed

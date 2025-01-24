@@ -128,7 +128,6 @@ func _on_title_plate_button_down():
 	moving_start = get_global_mouse_position()
 	backpack_start = backpack.position
 	game_manager.set_button_pressed(true)
-	print("Title plate down")
 	
 func _on_title_plate_button_up():
 	moving = false

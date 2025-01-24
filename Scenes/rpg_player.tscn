@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://wulbu7hb7i5t"]
+[gd_scene load_steps=11 format=3 uid="uid://jlgj5x8isa2w"]
 
 [ext_resource type="SpriteFrames" uid="uid://dk50k7pp118yg" path="res://Assets/sprites/SpriteFrames/Male_Normal_Mode.tres" id="1_a8hyv"]
 [ext_resource type="Shader" path="res://Assets/shaders/pink_alpha.gdshader" id="9_gtfx0"]
