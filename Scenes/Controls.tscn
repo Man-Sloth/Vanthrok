@@ -2,11 +2,17 @@
 
 [ext_resource type="Script" path="res://Scenes/Controls.gd" id="1_1lyrw"]
 [ext_resource type="Texture2D" uid="uid://djfun3oemvimr" path="res://Assets/sprites/UI/General UI/Background.png" id="2_1exyl"]
-[ext_resource type="Texture2D" uid="uid://c1q58nbejmn70" path="res://Assets/sprites/UI/xbutton2.png" id="3_67x84"]
+[ext_resource type="Texture2D" uid="uid://ch7xocwcacsdw" path="res://Assets/sprites/UI/xbutton3.png" id="3_p5igv"]
 [ext_resource type="Theme" uid="uid://c58omhf8eve5i" path="res://UI_Theme.tres" id="8_itydr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8v2wp"]
 texture = ExtResource("2_1exyl")
+texture_margin_left = 256.0
+texture_margin_top = 256.0
+texture_margin_right = 256.0
+texture_margin_bottom = 256.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok5o0"]
 
@@ -33,6 +39,7 @@ grow_vertical = 0
 script = ExtResource("1_1lyrw")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -50,16 +57,17 @@ pivot_offset = Vector2(7.5, 0)
 theme_override_styles/panel = SubResource("StyleBoxTexture_8v2wp")
 
 [node name="Exit Bag" type="Button" parent="."]
+modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 2
-offset_left = -52.0
-offset_top = -397.0
-offset_right = 568.0
-offset_bottom = 223.0
-scale = Vector2(0.05, 0.05)
+offset_left = -49.0
+offset_top = -391.0
+offset_right = 2007.0
+offset_bottom = 1665.0
+scale = Vector2(0.01, 0.01)
 mouse_filter = 1
 theme_override_colors/icon_pressed_color = Color(0.881937, 0.881937, 0.881937, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ok5o0")
-icon = ExtResource("3_67x84")
+icon = ExtResource("3_p5igv")
 flat = true
 icon_alignment = 2
 vertical_icon_alignment = 0
@@ -82,6 +90,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_2klv4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yfb0b")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 0
 offset_left = -305.0
 offset_top = -437.0
@@ -96,10 +105,10 @@ patch_margin_bottom = 256
 
 [node name="Title Text" type="Label" parent="."]
 layout_mode = 0
-offset_left = -307.0
-offset_top = -432.0
-offset_right = -96.0
-offset_bottom = -397.0
+offset_left = -305.0
+offset_top = -430.0
+offset_right = -94.0
+offset_bottom = -395.0
 theme = ExtResource("8_itydr")
 theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://djfun3oemvimr" path="res://Assets/sprites/UI/General UI/Background.png" id="2_43o7b"]
 [ext_resource type="Theme" uid="uid://c58omhf8eve5i" path="res://UI_Theme.tres" id="3_0p37w"]
 [ext_resource type="Script" path="res://Scripts/BarrelContainer.gd" id="4_lt8x0"]
-[ext_resource type="Texture2D" uid="uid://d18q81hcio2dn" path="res://Assets/sprites/UI/General UI/LightBackground.png" id="5_33fjs"]
+[ext_resource type="Texture2D" uid="uid://1h7eno7gyr6i" path="res://Assets/sprites/UI/General UI/LightBackground2.png" id="5_xjny4"]
 [ext_resource type="Script" path="res://Scripts/inventory_slot.gd" id="6_njrxw"]
-[ext_resource type="Texture2D" uid="uid://c1q58nbejmn70" path="res://Assets/sprites/UI/xbutton2.png" id="9_ed5sb"]
+[ext_resource type="Texture2D" uid="uid://ch7xocwcacsdw" path="res://Assets/sprites/UI/xbutton3.png" id="7_c8pns"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok5o0"]
 
@@ -32,6 +32,7 @@ scale = Vector2(0.65, 0.65)
 script = ExtResource("1_lqiae")
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
+self_modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 0
 offset_left = -440.0
 offset_top = -414.0
@@ -44,6 +45,8 @@ patch_margin_left = 256
 patch_margin_top = 256
 patch_margin_right = 256
 patch_margin_bottom = 256
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="BarrelContainer" type="ScrollContainer" parent="NinePatchRect2"]
 layout_mode = 1
@@ -74,7 +77,7 @@ columns = 5
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 Item_Type = 8
@@ -97,7 +100,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -119,7 +122,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -141,7 +144,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -164,7 +167,7 @@ custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -186,7 +189,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -206,7 +209,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -226,7 +229,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -248,7 +251,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -269,7 +272,7 @@ custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -289,7 +292,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -311,7 +314,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -331,7 +334,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -353,7 +356,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -376,7 +379,7 @@ custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -398,7 +401,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -420,7 +423,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -442,7 +445,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -464,7 +467,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -487,7 +490,7 @@ custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 1
 script = ExtResource("6_njrxw")
 
@@ -508,7 +511,7 @@ custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 2
 script = ExtResource("6_njrxw")
 
@@ -531,7 +534,7 @@ custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 2
 script = ExtResource("6_njrxw")
 
@@ -553,7 +556,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 2
 script = ExtResource("6_njrxw")
 
@@ -575,7 +578,7 @@ mouse_filter = 2
 custom_minimum_size = Vector2(1024, 1024)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 2
 script = ExtResource("6_njrxw")
 
@@ -599,7 +602,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
-texture = ExtResource("5_33fjs")
+texture = ExtResource("5_xjny4")
 expand_mode = 2
 script = ExtResource("6_njrxw")
 
@@ -618,16 +621,17 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Exit Bag" type="Button" parent="."]
+modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 2
-offset_left = -22.0
-offset_top = -404.0
-offset_right = 598.0
-offset_bottom = 216.0
-scale = Vector2(0.07, 0.07)
+offset_left = -13.8462
+offset_top = -395.385
+offset_right = 2042.15
+offset_bottom = 1660.62
+scale = Vector2(0.013, 0.013)
 mouse_filter = 1
 theme_override_colors/icon_pressed_color = Color(0.881937, 0.881937, 0.881937, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ok5o0")
-icon = ExtResource("9_ed5sb")
+icon = ExtResource("7_c8pns")
 flat = true
 icon_alignment = 2
 vertical_icon_alignment = 0
@@ -644,6 +648,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_2klv4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yfb0b")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 0
 offset_left = -302.0
 offset_top = -438.0
@@ -658,10 +663,10 @@ patch_margin_bottom = 256
 
 [node name="Title Text" type="Label" parent="."]
 layout_mode = 2
-offset_left = -294.667
-offset_top = -450.667
-offset_right = -102.667
-offset_bottom = -375.667
+offset_left = -295.385
+offset_top = -449.231
+offset_right = -103.385
+offset_bottom = -374.231
 theme = ExtResource("3_0p37w")
 theme_override_colors/font_color = Color(0.645758, 0.477297, 0.133683, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

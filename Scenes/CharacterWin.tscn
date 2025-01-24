@@ -16,6 +16,8 @@ texture_margin_left = 256.0
 texture_margin_top = 256.0
 texture_margin_right = 256.0
 texture_margin_bottom = 256.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 modulate_color = Color(1, 0.8, 0.301961, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok5o0"]
@@ -482,29 +484,29 @@ text = "69
 [node name="Exp Tag" type="Label" parent="."]
 self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
 layout_mode = 0
-offset_left = -535.664
-offset_top = -16.6573
-offset_right = -444.664
-offset_bottom = 11.3427
+offset_left = -509.024
+offset_top = -25.232
+offset_right = -418.024
+offset_bottom = 2.768
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
 theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-text = "Exp:"
+text = "Experience:"
 horizontal_alignment = 2
 
 [node name="Exp Value" type="Label" parent="."]
 layout_mode = 0
-offset_left = -423.664
-offset_top = -16.6573
-offset_right = -316.664
-offset_bottom = 42.3427
+offset_left = -400.264
+offset_top = -26.822
+offset_right = -293.264
+offset_bottom = 32.178
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-text = "9564 / 10000"
+text = "9564/10000"
 
 [node name="Health Tag" type="Label" parent="."]
 self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
@@ -679,9 +681,9 @@ text = "276
 self_modulate = Color(0.924573, 0.919377, 7.70092e-07, 1)
 layout_mode = 0
 offset_left = -209.664
-offset_top = -15.6573
+offset_top = -23.957
 offset_right = -105.664
-offset_bottom = 12.3427
+offset_bottom = 4.043
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
 theme_override_colors/font_color = Color(0.647059, 0.478431, 0.133333, 1)
@@ -692,10 +694,10 @@ horizontal_alignment = 2
 
 [node name="Constitution Value" type="Label" parent="."]
 layout_mode = 0
-offset_left = -92.6643
-offset_top = -15.6573
-offset_right = -1.66434
-offset_bottom = 43.3427
+offset_left = -90.384
+offset_top = -25.177
+offset_right = 0.615959
+offset_bottom = 33.823
 scale = Vector2(1.02439, 0.707317)
 theme = ExtResource("8_5qh2x")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

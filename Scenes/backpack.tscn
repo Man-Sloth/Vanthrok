@@ -38,7 +38,7 @@ self_modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 0
 offset_left = -440.0
 offset_top = -414.0
-offset_right = 3656.0
+offset_right = 3721.0
 offset_bottom = 3682.0
 scale = Vector2(0.115, 0.115)
 mouse_filter = 0
@@ -47,6 +47,8 @@ patch_margin_left = 256
 patch_margin_top = 256
 patch_margin_right = 256
 patch_margin_bottom = 256
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect2"]
 layout_mode = 1
@@ -981,10 +983,11 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Scroll Up" type="Button" parent="."]
+modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 2
-offset_left = -18.4615
+offset_left = -10.0
 offset_top = -341.538
-offset_right = 45.5385
+offset_right = 54.0
 offset_bottom = -213.538
 scale = Vector2(0.5, 0.5)
 focus_mode = 0
@@ -994,10 +997,11 @@ icon_alignment = 2
 expand_icon = true
 
 [node name="Scroll Down" type="Button" parent="."]
+modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 0
-offset_left = -18.0
+offset_left = -10.0
 offset_top = -49.468
-offset_right = 46.0
+offset_right = 54.0
 offset_bottom = 78.532
 scale = Vector2(0.5, 0.5)
 focus_mode = 0
@@ -1009,10 +1013,10 @@ expand_icon = true
 [node name="Exit Bag" type="Button" parent="."]
 modulate = Color(1, 0.8, 0.301961, 1)
 layout_mode = 2
-offset_left = -10.7692
-offset_top = -398.462
-offset_right = 2045.23
-offset_bottom = 1657.54
+offset_left = -6.15382
+offset_top = -395.385
+offset_right = 2049.85
+offset_bottom = 1660.62
 scale = Vector2(0.013, 0.013)
 mouse_filter = 1
 theme_override_colors/icon_pressed_color = Color(0.881937, 0.881937, 0.881937, 1)
