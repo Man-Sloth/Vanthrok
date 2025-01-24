@@ -3,11 +3,7 @@ extends ScrollContainer
 @onready var scroll_down = $"../../Scroll Down"
 @onready var game_manager = $"../../../../GameManager"
 @onready var i_slots = $InventorySlots
-<<<<<<< Updated upstream:Scripts/ScrollContainer.gd
 
-
-=======
->>>>>>> Stashed changes:Scenes/ScrollContainer.gd
 
 var top_being_pushed = false
 var bottom_being_pushed = false
