@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bddlcr3okd2qe"]
+[gd_scene load_steps=12 format=3 uid="uid://yk7i00ymkj4"]
 
 [ext_resource type="Script" path="res://Scripts/Barrel.gd" id="1_lqiae"]
 [ext_resource type="Texture2D" uid="uid://djfun3oemvimr" path="res://Assets/sprites/UI/General UI/Background.png" id="2_43o7b"]

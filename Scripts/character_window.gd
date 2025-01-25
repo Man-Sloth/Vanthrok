@@ -3,7 +3,6 @@ extends Panel
 @onready var vanthrok = $"../.."
 @onready var character_window = $"."
 @onready var exit_window = $"Exit Window"
-@onready var resize_window = $"Resize Window"
 @onready var title_plate = $"Title Plate"
 @onready var panel_container = $"PanelContainer"
 @onready var game_manager = %GameManager

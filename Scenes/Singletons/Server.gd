@@ -2,7 +2,7 @@ extends Node
 
 var network = ENetMultiplayerPeer.new()
 const ip = "127.0.0.1"
-const port = 1909
+const port = 4830
 var connected = false
 
 func _ready():
@@ -30,16 +30,16 @@ func server_connected():
 
 func FetchPlayerStats(player_stats, requester):
 	if(connected):
-		rpc_id(1,"FetchPlayerStatss", player_stats, requester)
+		rpc_id(1,"S_FetchPlayerStats", player_stats, requester)
 	
 @rpc("any_peer", "call_remote", "reliable")
 func ReturnPlayerStats(stats, requester):
 	instance_from_id(requester).Set_Speed(stats["Speed"])
-
-@rpc("any_peer", "reliable")
-func _register_player(new_player_info):
-	pass
 	
 @rpc("any_peer", "reliable")
-func FetchPlayerStatss(player_stats, requester):
+func S_FetchPlayerStats(player_stats, requester):
+	pass
+
+@rpc("any_peer", "reliable")	
+func _register_player(new_player_info):
 	pass

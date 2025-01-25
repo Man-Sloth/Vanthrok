@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Bank.tscn" id="8_qvan3"]
 [ext_resource type="PackedScene" uid="uid://dais4jkaopuby" path="res://Scenes/status_bars.tscn" id="8_xcea3"]
 [ext_resource type="Texture2D" uid="uid://be8v8q7l5nx3e" path="res://Assets/sprites/UI/General UI/ScreenBorder.png" id="9_gu2wh"]
-[ext_resource type="PackedScene" path="res://Scenes/Barrel.tscn" id="10_stvgp"]
+[ext_resource type="PackedScene" uid="uid://yk7i00ymkj4" path="res://Scenes/Barrel.tscn" id="10_stvgp"]
 
 [sub_resource type="TileSet" id="TileSet_wn4lu"]
 tile_shape = 1
@@ -69,6 +69,7 @@ offset_right = -119.21
 offset_bottom = -387.675
 
 [node name="Bank" parent="CanvasLayer" instance=ExtResource("8_qvan3")]
+visible = false
 
 [node name="CharacterWindow" parent="CanvasLayer" instance=ExtResource("8_2ciys")]
 unique_name_in_owner = true
