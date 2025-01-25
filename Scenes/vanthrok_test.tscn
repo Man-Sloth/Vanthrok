@@ -5,14 +5,14 @@
 [ext_resource type="Script" path="res://Scripts/rpg_player.gd" id="2_pij8f"]
 [ext_resource type="PackedScene" uid="uid://b4ish13sf6118" path="res://Scenes/rpg_player_NEW.tscn" id="5_ca2bj"]
 [ext_resource type="PackedScene" uid="uid://ba7trey8luw8y" path="res://Scenes/backpack.tscn" id="5_f7xvq"]
-[ext_resource type="PackedScene" path="res://Scenes/Crate.tscn" id="5_pk2hu"]
+[ext_resource type="PackedScene" uid="uid://co3gu3w37mvgb" path="res://Scenes/Crate.tscn" id="5_pk2hu"]
 [ext_resource type="PackedScene" uid="uid://d0qcnn1ns267x" path="res://Scenes/Controls.tscn" id="7_i8ybn"]
 [ext_resource type="PackedScene" uid="uid://7w1ur7aqqvti" path="res://Scenes/object.tscn" id="7_vy5p8"]
 [ext_resource type="PackedScene" uid="uid://dv7vk3ew136ws" path="res://Scenes/CharacterWin.tscn" id="8_2ciys"]
-[ext_resource type="PackedScene" path="res://Scenes/Bank.tscn" id="8_qvan3"]
+[ext_resource type="PackedScene" uid="uid://cekgqudmqv77v" path="res://Scenes/Bank.tscn" id="8_qvan3"]
 [ext_resource type="PackedScene" uid="uid://dais4jkaopuby" path="res://Scenes/status_bars.tscn" id="8_xcea3"]
-[ext_resource type="Texture2D" uid="uid://be8v8q7l5nx3e" path="res://Assets/sprites/UI/General UI/ScreenBorder.png" id="9_gu2wh"]
-[ext_resource type="PackedScene" uid="uid://yk7i00ymkj4" path="res://Scenes/Barrel.tscn" id="10_stvgp"]
+[ext_resource type="PackedScene" uid="uid://bddlcr3okd2qe" path="res://Scenes/Barrel.tscn" id="10_stvgp"]
+[ext_resource type="Texture2D" uid="uid://djvckyw1b6g0y" path="res://Assets/sprites/UI/General UI/ScreenBorder3.png" id="11_0yc66"]
 
 [sub_resource type="TileSet" id="TileSet_wn4lu"]
 tile_shape = 1
@@ -124,7 +124,7 @@ offset_top = -140.675
 offset_right = 9516.79
 offset_bottom = 5261.33
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("9_gu2wh")
+texture = ExtResource("11_0yc66")
 patch_margin_left = 256
 patch_margin_top = 256
 patch_margin_right = 256
@@ -176,4 +176,6 @@ visible = false
 tile_set = SubResource("TileSet_wn4lu")
 format = 2
 
+[connection signal="body_entered" from="TileMap/Door" to="TileMap/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMap/Door" to="TileMap/Door" method="_on_body_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Backpack" to="GameManager" method="_on_backpack_mouse_entered"]
