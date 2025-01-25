@@ -7,8 +7,6 @@ extends Panel
 #@onready var panel_container = $NinePatchRect2
 @onready var game_manager = %GameManager
 @onready var player = $"../../RPG_Player"
-@onready var scroll_container = $NinePatchRect2/ScrollContainer
-@onready var nine_patch_rect_2 = $NinePatchRect2
 
 
 

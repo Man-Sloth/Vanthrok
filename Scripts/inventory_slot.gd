@@ -105,12 +105,10 @@ func set_animation_frames(new_animation, new_dummy_image):
 func _on_mouse_entered():
 	game_manager.set_hovering_slot(true)
 	hovering = true
-	print("hovering")
 
 func _on_mouse_exited():
 	game_manager.set_hovering_slot(false)
 	hovering = false
-	print("not hovering")
 	
 func set_slot_object(new_object):
 	slot_object = new_object

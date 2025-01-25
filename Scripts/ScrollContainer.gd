@@ -5,7 +5,6 @@ extends ScrollContainer
 @onready var i_slots = $InventorySlots
 
 
-
 var top_being_pushed = false
 var bottom_being_pushed = false
 var speed = 3500
@@ -80,8 +79,6 @@ func _process(delta):
 		bottom_being_pushed = false
 		scroll_down.pivot_offset = Vector2(0, 0)
 		scroll_down.scale = Vector2(scale_default, scale_default)
-		
-	#print (get_v_scroll())
 
 func _on_scroll_up_button_down():
 	#var current_scroll = self.get_v_scroll()

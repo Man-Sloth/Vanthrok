@@ -3,7 +3,6 @@ extends Panel
 @onready var vanthrok = $"../.."
 @onready var character_window = $"."
 @onready var exit_window = $"Exit Window"
-@onready var resize_window = $"Resize Window"
 @onready var title_plate = $"Title Plate"
 @onready var panel_container = $"PanelContainer"
 @onready var game_manager = %GameManager
@@ -40,7 +39,6 @@ const OBJECTSCENE = preload("res://Scenes/object.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(100)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

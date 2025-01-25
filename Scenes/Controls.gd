@@ -4,7 +4,6 @@ extends Panel
 @onready var backpack = $"."
 @onready var exit_bag = $"Exit Bag"
 @onready var title_plate = $"Title Plate"
-@onready var resize_bag = $"Resize Bag"
 @onready var panel_container = $"PanelContainer"
 @onready var game_manager = %GameManager
 

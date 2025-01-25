@@ -4,7 +4,6 @@ extends Panel
 @onready var backpack = $"."
 @onready var exit_bag = $"Exit Bag"
 @onready var title_plate = $"Title Plate"
-@onready var resize_bag = $"Resize Bag"
 #@onready var panel_container = $NinePatchRect2
 @onready var game_manager = %GameManager
 @onready var player = $"../../RPG_Player"
@@ -128,7 +127,6 @@ func _on_title_plate_button_down():
 	moving_start = get_global_mouse_position()
 	backpack_start = backpack.position
 	game_manager.set_button_pressed(true)
-	print("Title plate down")
 	
 func _on_title_plate_button_up():
 	moving = false
